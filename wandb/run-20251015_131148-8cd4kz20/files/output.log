@@ -1,0 +1,1606 @@
+[92mINFO [0m:
+[92mINFO [0m:      Starting CustomFedAvg with [battery_aware] client selection strategy...
+[92mINFO [0m:
+[92mINFO [0m:      Number of server rounds: 25
+[92mINFO [0m:      Local epochs: 1
+[92mINFO [0m:      Total clients: 10
+[92mINFO [0m:      Fraction of client selected: 0.50
+[92mINFO [0m:
+[92mINFO [0m:      Initial global evaluation results: {'centralized_accuracy': 0.1, 'centralized_loss': 2.3034}
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 1/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.5145037211539734, 'train_accuracy': 0.46191501860191897}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2427788650211076, 'eval_accuracy': 0.11802701115678216}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.1, 'centralized_loss': 2.3215}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 2/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.4816090256195498, 'train_accuracy': 0.44583104772353255}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.080816370853942, 'eval_accuracy': 0.21025219298245612}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.1033, 'centralized_loss': 2.4393}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 3/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.445083115099622, 'train_accuracy': 0.47652708038804664}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.136714037335701, 'eval_accuracy': 0.23489278752436646}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.1717, 'centralized_loss': 2.1676}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 4/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.4406384444597564, 'train_accuracy': 0.466535755195549}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.9518441036067231, 'eval_accuracy': 0.25910577971646676}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.1961, 'centralized_loss': 2.0362}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 5/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.341444340777985, 'train_accuracy': 0.5159941839331151}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7426970319946467, 'eval_accuracy': 0.37790697674418605}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2627, 'centralized_loss': 1.9278}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 6/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2783996057964686, 'train_accuracy': 0.5606645331325302}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.76556724431274, 'eval_accuracy': 0.3534060971019947}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2883, 'centralized_loss': 1.858}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 7/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2158935424575084, 'train_accuracy': 0.5867435158501441}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.684914908532917, 'eval_accuracy': 0.39493087557603684}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3184, 'centralized_loss': 1.8317}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 8/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.310035657372689, 'train_accuracy': 0.5264854905573468}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7243527681611956, 'eval_accuracy': 0.3140986290157561}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2685, 'centralized_loss': 1.949}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 9/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.3390958870496843, 'train_accuracy': 0.5050686821426429}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.626185647970121, 'eval_accuracy': 0.413189448441247}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2867, 'centralized_loss': 1.8512}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 10/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.3649487208158855, 'train_accuracy': 0.49472039395804723}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7711626920299368, 'eval_accuracy': 0.32336236274138586}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2977, 'centralized_loss': 1.8073}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 11/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2064507912167142, 'train_accuracy': 0.589731467473525}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.610904743750341, 'eval_accuracy': 0.3856332703213611}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3237, 'centralized_loss': 1.854}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 12/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.1989634575894899, 'train_accuracy': 0.5809748033862646}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6766208829344096, 'eval_accuracy': 0.3802083333333333}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.341, 'centralized_loss': 1.8022}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 13/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.235741492398332, 'train_accuracy': 0.5706684574852774}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6209803451299887, 'eval_accuracy': 0.3985956216439488}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3108, 'centralized_loss': 1.8422}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 14/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.215548982490777, 'train_accuracy': 0.5715145677823261}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7475058534631127, 'eval_accuracy': 0.370406034344407}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3448, 'centralized_loss': 1.7882}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 15/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.234925441077313, 'train_accuracy': 0.5603509268430735}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7368089105826932, 'eval_accuracy': 0.3468502451904942}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.335, 'centralized_loss': 1.8422}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 16/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2446408920615528, 'train_accuracy': 0.5579126321235863}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7344362999978435, 'eval_accuracy': 0.36491279929057047}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3373, 'centralized_loss': 1.7637}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 17/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.1396833323668036, 'train_accuracy': 0.6251150800957467}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6061470815981902, 'eval_accuracy': 0.39411042944785274}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3616, 'centralized_loss': 1.7926}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 18/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2145192280664932, 'train_accuracy': 0.580678651439812}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.5672816272565315, 'eval_accuracy': 0.4343456412497269}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3256, 'centralized_loss': 1.8208}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 19/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.1530069534871645, 'train_accuracy': 0.6006373355263157}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6611044000132842, 'eval_accuracy': 0.3833504624871531}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3284, 'centralized_loss': 1.74}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 20/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2548939850362175, 'train_accuracy': 0.5638208453410183}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6001893848133422, 'eval_accuracy': 0.4138262121939511}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3283, 'centralized_loss': 1.744}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 21/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[92mINFO [0m:      aggregate_train: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 12262877513154501250: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 17723261048632915465: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.4221948235013917, 'train_accuracy': 0.4910824108241082}
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 12262877513154501250: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 11268008069011095233: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.8224703507840423, 'eval_accuracy': 0.3563566318106769}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2891, 'centralized_loss': 2.1711}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 22/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[33m(raylet)[0m [2025-10-15 13:17:52,417 E 207054 207054] (raylet) node_manager.cc:3064: 2 Workers (tasks / actors) killed due to memory pressure (OOM), 0 Workers crashed due to other reasons at node (ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0, IP: 172.27.6.219) over the last time period. To see more information about the Workers killed on this node, use `ray logs raylet.out -ip 172.27.6.219`
+[33m(raylet)[0m
+[33m(raylet)[0m Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[92mINFO [0m:      aggregate_train: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 15531730367503568671: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 14389589343701117391: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.1237201155047827, 'train_accuracy': 0.6320882088208821}
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 14389589343701117391: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 15531730367503568671: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6266223424915591, 'eval_accuracy': 0.3989202159568086}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3482, 'centralized_loss': 1.7933}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 23/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[92mINFO [0m:      aggregate_train: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 15531730367503568671: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 12176216891630479328: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.3824386927236243, 'train_accuracy': 0.494585746663309}
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 12176216891630479328: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 15531730367503568671: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6824474391563013, 'eval_accuracy': 0.39123867069486407}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2521, 'centralized_loss': 2.0173}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 24/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[92mINFO [0m:      aggregate_train: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 14389589343701117391: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 15531730367503568671: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.294961574350629, 'train_accuracy': 0.5522987523500256}
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 15531730367503568671: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 14389589343701117391: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.5184044118993811, 'eval_accuracy': 0.47523061154765966}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3413, 'centralized_loss': 1.8605}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 25/25]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[92mINFO [0m:      aggregate_train: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 15531730367503568671: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 8789993695806802514: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.238303661195008, 'train_accuracy': 0.5750520537573348}
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[91mERROR [0m:     An exception was raised when processing a message by RayBackend
+[91mERROR [0m:     Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[91mERROR [0m:     Traceback (most recent call last):
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/vce_api.py", line 111, in worker
+    out_mssg, updated_context = backend.process_message(message, context)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 189, in process_message
+    raise ex
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/server/superlink/fleet/vce/backend/raybackend.py", line 176, in process_message
+    ) = self.pool.fetch_result_and_return_actor_to_pool(future)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/flwr/simulation/ray_transport/ray_actor.py", line 480, in fetch_result_and_return_actor_to_pool
+    _, out_mssg, updated_context = ray.get(future)
+                                   ^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/auto_init_hook.py", line 21, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/client_mode_hook.py", line 103, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 2639, in get
+    values, debugger_breakpoint = worker.get_objects(object_refs, timeout=timeout)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/fl/venv/lib/python3.12/site-packages/ray/_private/worker.py", line 866, in get_objects
+    raise value
+ray.exceptions.OutOfMemoryError: Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+
+[92mINFO [0m:      aggregate_evaluate: Received 3 results and 2 failures
+[92mINFO [0m:      	> Received error in reply from node 15531730367503568671: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: e1a57763500a204c871cfbdc01000000, name=ClientAppActor.__init__, pid=207962, memory used=0.43GB) was running was 7.10GB / 7.43GB (0.955704), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-5b2a711e56c0ddcb4b5451f3f8fccf2efc629bf0a4938a188ec47623*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.19	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.44	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207962	0.43	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+207964	0.43	ray::ClientAppActor.run
+207961	0.43	ray::ClientAppActor.run
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	> Received error in reply from node 8789993695806802514: <class 'ray.exceptions.OutOfMemoryError'>:<'Task was killed due to the node running low on memory.
+Memory on the node (IP: 172.27.6.219, ID: f92463bbb6dedef4c1cf5eb0e7bcd016be485ad7bc3ab982d26506b0) where the task (actor ID: ee66605026d0497f521d390601000000, name=ClientAppActor.__init__, pid=207964, memory used=0.44GB) was running was 7.08GB / 7.43GB (0.953094), which exceeds the memory usage threshold of 0.95. Ray killed this worker (ID: 77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e) because it was the most recently scheduled task; to see more information about memory usage on this node, use `ray logs raylet.out -ip 172.27.6.219`. To see the logs of the worker, use `ray logs worker-77eab166b78f4a200c4605472f58a624727dfcb335cb3d2ca4118c2e*out -ip 172.27.6.219. Top 10 memory users:
+PID	MEM(GB)	COMMAND
+11586	1.06	/home/user/.vscode-server/bin/03c265b1adee71ac88f833e065f7bb956b60550a/node --dns-result-order=ipv4f...
+206748	0.48	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+210945	0.45	/home/user/fl/venv/bin/python /home/user/fl/venv/bin/flower-simulation --app . --num-supernodes 10 -...
+207961	0.44	ray::ClientAppActor.run
+207964	0.44	ray::ClientAppActor.run
+207960	0.43	ray::ClientAppActor
+207963	0.43	ray::ClientAppActor
+11877	0.29	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+11893	0.26	/home/user/fl/venv/bin/python /home/user/.vscode-server/extensions/ms-python.python-2025.16.0-linux-...
+206842	0.09	/home/user/fl/venv/lib/python3.12/site-packages/ray/core/src/ray/gcs/gcs_server --log_dir=/tmp/ray/s...
+Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. Set max_restarts and max_task_retries to enable retry when the task crashes due to OOM. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.'>
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.3779251621820627, 'eval_accuracy': 0.48107494322482974}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2295, 'centralized_loss': 2.4153}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      Strategy execution finished in 431.59s
+[92mINFO [0m:
+[0m

@@ -1,0 +1,43 @@
+[92mINFO [0m:
+[92mINFO [0m:      Starting CustomFedAvg with [battery_aware] client selection strategy...
+[92mINFO [0m:
+[92mINFO [0m:      Number of server rounds: 3
+[92mINFO [0m:      Local epochs: 1
+[92mINFO [0m:      Total clients: 10
+[92mINFO [0m:      Fraction of client selected: 0.50
+[92mINFO [0m:
+[92mINFO [0m:      Initial global evaluation results: {'centralized_accuracy': 0.1022, 'centralized_loss': 2.3043}
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 1/3]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.5702496221260818, 'train_accuracy': 0.4361745933703933}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2689098688299114, 'eval_accuracy': 0.12945050421897508}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.0995, 'centralized_loss': 2.3179}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 2/3]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.594769535077674, 'train_accuracy': 0.4375219463255581}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.270067268394865, 'eval_accuracy': 0.11893301243481749}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.1258, 'centralized_loss': 2.2816}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 3/3]
+[92mINFO [0m:      configure_train: Strategy [battery_aware] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.5415365922578346, 'train_accuracy': 0.4275326663386365}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.1179381291629236, 'eval_accuracy': 0.18775956284153006}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.1464, 'centralized_loss': 2.2199}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      Strategy execution finished in 43.18s
+[92mINFO [0m:
+[0m

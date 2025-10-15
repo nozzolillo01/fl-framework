@@ -1,0 +1,17 @@
+{
+  "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "CPython 3.12.3",
+  "startedAt": "2025-10-15T01:27:37.339729Z",
+  "args": [
+    "--app",
+    ".",
+    "--num-supernodes",
+    "10"
+  ],
+  "program": "/home/user/fl/venv/bin/flower-simulation",
+  "email": "nozzolillo01@gmail.com",
+  "root": "/home/user/fl/my-app",
+  "host": "HP-Angelo",
+  "executable": "/home/user/fl/venv/bin/python",
+  "writerId": "i484m8fbnjsta7xars5jnlq3h3tlb3o1"
+}

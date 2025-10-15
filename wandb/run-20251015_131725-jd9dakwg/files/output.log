@@ -1,0 +1,266 @@
+[92mINFO [0m:
+[92mINFO [0m:      Starting CustomFedAvg with [random] client selection strategy...
+[92mINFO [0m:
+[92mINFO [0m:      Number of server rounds: 25
+[92mINFO [0m:      Local epochs: 1
+[92mINFO [0m:      Total clients: 10
+[92mINFO [0m:      Fraction of client selected: 0.50
+[92mINFO [0m:
+[92mINFO [0m:      Initial global evaluation results: {'centralized_accuracy': 0.0998, 'centralized_loss': 2.3052}
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 1/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.6744300012066078, 'train_accuracy': 0.399467491196427}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.2791395745443057, 'eval_accuracy': 0.12794092392237677}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.1, 'centralized_loss': 2.317}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 2/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.5695037479247644, 'train_accuracy': 0.44444918872758327}
+[33m(raylet)[0m [2025-10-15 13:18:31,561 E 211267 211267] (raylet) node_manager.cc:3064: 1 Workers (tasks / actors) killed due to memory pressure (OOM), 0 Workers crashed due to other reasons at node (ID: 22333a8515dd84fa62bf2fd8957649e9535f50e5756a83f6646a02de, IP: 172.27.6.219) over the last time period. To see more information about the Workers killed on this node, use `ray logs raylet.out -ip 172.27.6.219`
+[33m(raylet)[0m
+[33m(raylet)[0m Refer to the documentation on how to address the out of memory issue: https://docs.ray.io/en/latest/ray-core/scheduling/ray-oom-prevention.html. Consider provisioning more memory on this node or reducing task parallelism by requesting more CPUs per task. To adjust the kill threshold, set the environment variable `RAY_memory_usage_threshold` when starting Ray. To disable worker killing, set the environment variable `RAY_memory_monitor_refresh_ms` to zero.
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.0585948653136126, 'eval_accuracy': 0.2183711797848728}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.1647, 'centralized_loss': 2.1907}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 3/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.5188181717970872, 'train_accuracy': 0.4388242587797674}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 2.0685701252146504, 'eval_accuracy': 0.22210879393320693}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2055, 'centralized_loss': 2.0792}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 4/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.431070376691021, 'train_accuracy': 0.5056670864508481}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.8388817431022002, 'eval_accuracy': 0.30145099200473796}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.1915, 'centralized_loss': 2.1498}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 5/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.4727059127077635, 'train_accuracy': 0.4765448573188257}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.876413802260151, 'eval_accuracy': 0.2809357685204186}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2371, 'centralized_loss': 2.032}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 6/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.373223361486482, 'train_accuracy': 0.5056720318346499}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.761716565245326, 'eval_accuracy': 0.3448112087390169}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.287, 'centralized_loss': 1.8853}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 7/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2512550736034074, 'train_accuracy': 0.5778280325265842}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7784991018426641, 'eval_accuracy': 0.3440446411391187}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3037, 'centralized_loss': 1.8326}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 8/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2462761773856337, 'train_accuracy': 0.5555129118920994}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7136789677904, 'eval_accuracy': 0.34729226046919537}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.205, 'centralized_loss': 2.032}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 9/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.3827722660415778, 'train_accuracy': 0.5138778002160335}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.75257194531162, 'eval_accuracy': 0.36863849765258216}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2943, 'centralized_loss': 1.8974}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 10/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.3371652601465391, 'train_accuracy': 0.5110071381440826}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6722513820839375, 'eval_accuracy': 0.39664268585131895}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2682, 'centralized_loss': 1.9273}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 11/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2752879319770778, 'train_accuracy': 0.5338830921126445}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7534594276617077, 'eval_accuracy': 0.3239120681920144}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2916, 'centralized_loss': 1.8363}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 12/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2160851745664707, 'train_accuracy': 0.5812271062271062}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7184082327777541, 'eval_accuracy': 0.36287074331746616}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3203, 'centralized_loss': 1.7779}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 13/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2609487879210728, 'train_accuracy': 0.5428207716957113}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.733557946345471, 'eval_accuracy': 0.36194488327189744}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3302, 'centralized_loss': 1.7698}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 14/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2225688554844154, 'train_accuracy': 0.5773235848011521}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6278348113359935, 'eval_accuracy': 0.4212624584717608}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.326, 'centralized_loss': 1.8379}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 15/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2835489258270147, 'train_accuracy': 0.5266545870684722}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7704849576073634, 'eval_accuracy': 0.37292659675881795}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3291, 'centralized_loss': 1.8744}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 16/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.192849953301583, 'train_accuracy': 0.5817286598742262}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7811218460553353, 'eval_accuracy': 0.3124756335282651}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2647, 'centralized_loss': 1.8838}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 17/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2027265516124, 'train_accuracy': 0.5828700844142475}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6130575278389188, 'eval_accuracy': 0.3803251697880222}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3232, 'centralized_loss': 1.7064}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 18/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2301248709872277, 'train_accuracy': 0.574395742479119}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7712820358023613, 'eval_accuracy': 0.3343186520839492}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3016, 'centralized_loss': 1.8401}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 19/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.260491238246021, 'train_accuracy': 0.5652617675312199}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.5598222913944906, 'eval_accuracy': 0.43278924627940474}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3425, 'centralized_loss': 1.734}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 20/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.222199199977194, 'train_accuracy': 0.5620419073898422}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7734635399425316, 'eval_accuracy': 0.34051724137931033}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2866, 'centralized_loss': 1.892}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 21/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2230420643615518, 'train_accuracy': 0.5851868629671574}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6354524399177337, 'eval_accuracy': 0.394131497917044}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3584, 'centralized_loss': 1.7027}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 22/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.203254692352579, 'train_accuracy': 0.5778161581270389}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7486025001377214, 'eval_accuracy': 0.3330136197966622}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2852, 'centralized_loss': 1.8559}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 23/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2428133632491656, 'train_accuracy': 0.5800700267207224}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.6507092832186314, 'eval_accuracy': 0.3494841562269712}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3077, 'centralized_loss': 1.7203}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 24/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.2450240083749924, 'train_accuracy': 0.5558273632710117}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.5713121174385765, 'eval_accuracy': 0.42827200745225896}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.2582, 'centralized_loss': 2.2583}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      [ROUND 25/25]
+[92mINFO [0m:      configure_train: Strategy [random] sampled 5 nodes (out of 10), 5 active, 0 dead
+[92mINFO [0m:      aggregate_train: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'train_loss': 1.331433958846241, 'train_accuracy': 0.5146834083680971}
+[92mINFO [0m:      aggregate_evaluate: Received 5 results and 0 failures
+[92mINFO [0m:      	└──> Aggregated MetricRecord: {'eval_loss': 1.7375612024711784, 'eval_accuracy': 0.37654830718414534}
+[92mINFO [0m:      Global evaluation
+[92mINFO [0m:      	└──> MetricRecord: {'centralized_accuracy': 0.3286, 'centralized_loss': 1.8913}
+[92mINFO [0m:
+[92mINFO [0m:
+[92mINFO [0m:      Strategy execution finished in 408.26s
+[92mINFO [0m:
+[0m

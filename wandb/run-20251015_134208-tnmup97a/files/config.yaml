@@ -1,0 +1,68 @@
+_wandb:
+    value:
+        cli_version: 0.22.2
+        e:
+            b0ycy87gtnxpsxl2yfnr54tvu058xcrg:
+                args:
+                    - --app
+                    - .
+                    - --num-supernodes
+                    - "10"
+                    - --run-config
+                    - num-server-rounds=5
+                cpu_count: 8
+                cpu_count_logical: 16
+                disk:
+                    /:
+                        total: "1081101176832"
+                        used: "91690663936"
+                email: nozzolillo01@gmail.com
+                executable: /home/user/fl/venv/bin/python
+                host: HP-Angelo
+                memory:
+                    total: "7977758720"
+                os: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39
+                program: /home/user/fl/venv/bin/flower-simulation
+                python: CPython 3.12.3
+                root: /home/user/fl/my-app
+                startedAt: "2025-10-15T11:42:08.208003Z"
+                writerId: b0ycy87gtnxpsxl2yfnr54tvu058xcrg
+        m: []
+        python_version: 3.12.3
+        t:
+            "1":
+                - 1
+                - 30
+                - 41
+                - 49
+                - 51
+            "2":
+                - 1
+                - 30
+                - 41
+                - 49
+                - 51
+            "3":
+                - 13
+                - 16
+                - 61
+            "4": 3.12.3
+            "5": 0.22.2
+            "12": 0.22.2
+            "13": linux-x86_64
+alpha:
+    value: 2
+local-epochs:
+    value: 5
+lr:
+    value: 0.01
+min-battery-threshold:
+    value: 0.2
+num-server-rounds:
+    value: 5
+num-supernodes:
+    value: 10
+selection-fraction:
+    value: 0.5
+strategy:
+    value: battery_aware
