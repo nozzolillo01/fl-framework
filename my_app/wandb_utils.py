@@ -15,7 +15,10 @@ def wandb_init(strategy_name: str, num_supernodes: int, num_server_rounds: int, 
 
     current_time = time.strftime("%d/%m/%Y_%H:%M:%S")
     run_name = f"[{strategy_name}] - {current_time}"
-    wandb.init(project=PROJECT_NAME, name=run_name, config={
+    wandb.init(
+     project=PROJECT_NAME,
+     name=run_name,
+     config={
         "num-supernodes": num_supernodes,
         "strategy": strategy_name,
         "num-server-rounds": num_server_rounds,
@@ -26,51 +29,15 @@ def wandb_init(strategy_name: str, num_supernodes: int, num_server_rounds: int, 
         "min-battery-threshold": min_battery_threshold,
     })
 
-def log_training_metrics(server_round: int, train_metrics: dict) -> None:
-    """Log training metrics to W&B.
+def log_metrics(server_round: int, metrics: dict) -> None:
+    """Log any metrics to W&B.
     
     Args:
         server_round: Current server round number
-        train_metrics: Training metrics from aggregate_train (loss, accuracy, etc.)
+        metrics: Dictionary of metrics to log (training, evaluation, fleet, etc.)
     """
     try:
-        wandb.log(train_metrics, step=server_round)
-    except Exception:
-        pass
-
-def log_evaluation_metrics(server_round: int, eval_metrics: dict) -> None:
-    """Log evaluation metrics to W&B.
-
-    Args:
-        server_round: Current server round number
-        eval_metrics: Evaluation metrics (eval_loss, eval_accuracy, etc.)
-    """
-    try:
-        wandb.log(eval_metrics, step=server_round)
-    except Exception:
-        pass
-
-def log_centralized_metrics(server_round: int, centralized_metrics: dict) -> None:
-    """Log centralized/server-side evaluation metrics to W&B.
-
-    Args:
-        server_round: Current server round number
-        centralized_metrics: Centralized evaluation metrics (centralized_accuracy, centralized_loss, etc.)
-    """
-    try:
-        wandb.log(centralized_metrics, step=server_round)
-    except Exception:
-        pass
-
-def log_fleet_metrics(server_round: int, fleet_metrics: dict) -> None:
-    """Log fleet metrics to W&B.
-
-    Args:
-        server_round: Current server round number
-        fleet_metrics: Fleet metrics (selected_clients, dead_clients, battery stats, etc.)
-    """
-    try:
-        wandb.log(fleet_metrics, step=server_round)
+        wandb.log(metrics, step=server_round)
     except Exception:
         pass
 
@@ -115,4 +82,3 @@ def log_client_details_table(server_round: int, client_details: list) -> None:
 
     except Exception:
         pass
-

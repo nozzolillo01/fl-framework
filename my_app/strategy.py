@@ -14,7 +14,7 @@ from flwr.serverapp.strategy import FedAvg, Result
 from flwr.serverapp.strategy.strategy_utils import log_strategy_start_info, sample_nodes
 
 from my_app.selection_strategies import get_selection_strategy
-from my_app.wandb_utils import wandb_init, log_training_metrics, log_evaluation_metrics, log_centralized_metrics, log_fleet_metrics, log_client_details_table
+from my_app.wandb_utils import wandb_init, log_metrics, log_client_details_table
 
 
 class CustomFedAvg(FedAvg):
@@ -85,15 +85,13 @@ class CustomFedAvg(FedAvg):
         dead_clients = self.fleet_manager.get_dead_clients(selected_node_ids, local_epochs)
         
         # Exclude dead clients from actual training
-        active_node_ids = [nid for nid in selected_node_ids if nid not in dead_clients]
+        active_node_ids = [cid for cid in selected_node_ids if cid not in dead_clients]
 
         # Persist the selection (excluding dead clients) for evaluate
         self.active_node_ids = list(active_node_ids)
         
-        # Update fleet manager: all selected clients (including dead) consume/recharge
-        self.fleet_manager.update_round(selected_node_ids, all_node_ids, local_epochs)
         
-        # Calculate metrics AFTER update (to capture consumption and updated battery levels)
+        # Calculate metrics BEFORE update
         min_threshold = self.selection_params.get("min-battery-threshold")
         self.round_fleet_metrics = self.fleet_manager.get_round_metrics(
             selected_clients=selected_node_ids,
@@ -101,6 +99,9 @@ class CustomFedAvg(FedAvg):
             min_threshold=min_threshold,
             local_epochs=local_epochs
         )
+
+        # Update fleet manager: all selected clients (including dead) consume/recharge
+        self.fleet_manager.update_round(selected_node_ids, all_node_ids, local_epochs)
         
         # Build client details for W&B table
         self.round_client_details = self.fleet_manager.get_client_details(
@@ -239,8 +240,7 @@ class CustomFedAvg(FedAvg):
                 result.train_metrics_clientapp[current_round] = agg_train_metrics
 
                 # Log to W&B
-                log_training_metrics(server_round=current_round, train_metrics=dict(agg_train_metrics))
-                log_fleet_metrics(server_round=current_round, fleet_metrics=fleet_metrics)
+                log_metrics(server_round=current_round, metrics={**dict(agg_train_metrics), **fleet_metrics})
                 log_client_details_table(server_round=current_round, client_details=client_details)
 
             # -----------------------------------------------------------------
@@ -270,10 +270,7 @@ class CustomFedAvg(FedAvg):
                 log(INFO, "\t└──> Aggregated MetricRecord: %s", agg_evaluate_metrics)
                 result.evaluate_metrics_clientapp[current_round] = agg_evaluate_metrics
                 # Log to W&B
-                log_evaluation_metrics(
-                    server_round=current_round,
-                    eval_metrics=dict(agg_evaluate_metrics),
-                )
+                log_metrics(server_round=current_round, metrics=dict(agg_evaluate_metrics))
 
             # -----------------------------------------------------------------
             # --- EVALUATION (SERVERAPP-SIDE) ---------------------------------
@@ -287,10 +284,7 @@ class CustomFedAvg(FedAvg):
                 if res is not None:
                     result.evaluate_metrics_serverapp[current_round] = res
                     # Log to W&B
-                    log_centralized_metrics(
-                        server_round=current_round,
-                        centralized_metrics=dict(res),
-                    )
+                    log_metrics(server_round=current_round, metrics=dict(res))
             log(INFO, "")
 
         log(INFO, "")

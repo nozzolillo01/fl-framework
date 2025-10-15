@@ -45,9 +45,9 @@ def select_battery_aware(available_nodes: list[int], fleet_manager: FleetManager
     if not available_nodes:
         return [], {}
 
-    sample_fraction = params.get("selection-fraction", 0.5)
-    alpha = params.get("alpha", 2.0)
-    min_battery_threshold = params.get("min-battery-threshold", 0.2)
+    sample_fraction = params.get("selection-fraction")
+    alpha = params.get("alpha")
+    min_battery_threshold = params.get("min-battery-threshold")
 
     # Filter clients below battery threshold
     eligible_node_ids = fleet_manager.get_clients_above_threshold(available_nodes, min_battery_threshold)
