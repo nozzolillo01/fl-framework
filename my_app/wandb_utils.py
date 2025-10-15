@@ -2,10 +2,7 @@
 
 import time
 import wandb
-import logging
-import random
 
-import numpy as np
 
 
 PROJECT_NAME = "fl-client-selection-framework"

@@ -1,8 +1,6 @@
 """my-app: A Flower / PyTorch app."""
 
 import torch
-from datetime import datetime
-from pathlib import Path
 from flwr.app import ArrayRecord, ConfigRecord, Context
 from flwr.serverapp import Grid, ServerApp
 
@@ -15,7 +13,6 @@ app = ServerApp()
 
 # Global FleetManager instance
 fleet_manager = FleetManager()
-
 
 @app.main()
 def main(grid: Grid, context: Context) -> None:

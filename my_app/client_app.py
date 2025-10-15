@@ -12,18 +12,9 @@ from my_app.battery_simulator import BatterySimulator
 # Flower ClientApp
 app = ClientApp()
 
-# Dictionary to store battery simulators for each client
-_battery_simulators = {}
-
-
 @app.train()
 def train(msg: Message, context: Context):
     """Train the model on local data."""
-    
-    # Get or create battery simulator for this client
-    client_id = context.node_id
-    if client_id not in _battery_simulators:
-        _battery_simulators[client_id] = BatterySimulator(client_id)
 
     local_epochs = context.run_config["local-epochs"]
 
@@ -63,12 +54,6 @@ def train(msg: Message, context: Context):
 @app.evaluate()
 def evaluate(msg: Message, context: Context):
     """Evaluate the model on local data."""
-    
-    # Get or create battery simulator for this client
-    client_id = context.node_id
-    if client_id not in _battery_simulators:
-        _battery_simulators[client_id] = BatterySimulator(client_id)
-
     # Load the model and initialize it with the received weights
     model = Net()
     model.load_state_dict(msg.content["arrays"].to_torch_state_dict())  

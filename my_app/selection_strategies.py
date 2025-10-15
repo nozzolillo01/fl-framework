@@ -26,7 +26,7 @@ def select_random(available_nodes: list[int], fleet_manager: FleetManager, param
     if not available_nodes:
         return [], {}
     
-    sample_fraction = params.get("sample_fraction", 0.5)
+    sample_fraction = params.get("sample-fraction")
     num_to_select = max(1, int(len(available_nodes) * sample_fraction))
     
     selected = random.sample(available_nodes, num_to_select)
@@ -135,7 +135,3 @@ def get_selection_strategy(name: str) -> Optional[Callable[[list[int], FleetMana
             f"Available strategies: {available}"
         )
     return STRATEGIES[name]
-
-def list_strategies() -> list[str]:
-    """List all available selection strategies."""
-    return sorted(STRATEGIES.keys())

@@ -4,14 +4,11 @@ import time
 import warnings
 from collections.abc import Iterable
 from logging import INFO
-from pathlib import Path
 from typing import Callable, Optional
 
-import wandb
 from flwr.common import ArrayRecord, ConfigRecord, Message, MetricRecord, RecordDict, log
 from flwr.server import Grid
 from flwr.serverapp.strategy import FedAvg, Result
-from flwr.serverapp.strategy.strategy_utils import log_strategy_start_info, sample_nodes
 
 from my_app.selection_strategies import get_selection_strategy
 from my_app.wandb_utils import wandb_init, log_metrics, log_client_details_table
@@ -39,7 +36,6 @@ class CustomFedAvg(FedAvg):
         self.selection_strategy_name = selection_strategy
         self.selection_strategy_fn = get_selection_strategy(selection_strategy)
         self.selection_params = selection_params or {}
-        self.current_round = 0
 
         self.active_node_ids: list = [] # Store selected active clients for evaluation
         self.round_fleet_metrics: Optional[dict] = None # Store fleet metrics for W&B
