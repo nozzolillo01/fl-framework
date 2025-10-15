@@ -1,8 +1,7 @@
 # Wandb logs
 wandb/
 
-#model
-*.pt
+
 
 # Python
 __pycache__/
