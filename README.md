@@ -119,6 +119,35 @@ selection-strategy = "all_available"
 
 ---
 
+## 🔧 Overriding Parameters via CLI
+
+You can override the parameters defined in `pyproject.toml` directly from the command line using the `--run-config` or `--federation-config` flags.
+
+### Overriding Run Configuration Parameters
+
+Use the `--run-config` flag to specify the parameters to override:
+
+```bash
+flwr run . --run-config 'num-server-rounds=5 selection-fraction=0.7'
+```
+
+This command will execute a simulation with:
+- **5 rounds** of Federated Learning
+- **70%** of available clients selected per round
+
+
+### Overriding Federation Configuration Parameters
+
+Use the `--federation-config` flag to override federation-related parameters:
+
+```bash
+flwr run . --federation-config 'options.num-supernodes=20'
+```
+
+This command will execute a simulation with **20 virtual clients**.
+
+---
+
 ## 🏗️ Architecture
 
 ```
