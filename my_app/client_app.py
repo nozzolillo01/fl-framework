@@ -7,7 +7,6 @@ from flwr.clientapp import ClientApp
 from my_app.task import Net, load_data
 from my_app.task import test as test_fn
 from my_app.task import train as train_fn
-from my_app.battery_simulator import BatterySimulator
 
 # Flower ClientApp
 app = ClientApp()

@@ -66,7 +66,9 @@ class CustomFedAvg(FedAvg):
             for node_id in all_node_ids
         }
         
+        #########################################
         # Apply custom selection strategy
+        #########################################
         selected_node_ids, prob_map = self.selection_strategy_fn(
             all_node_ids,
             self.fleet_manager,
