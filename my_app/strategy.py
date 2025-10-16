@@ -51,10 +51,6 @@ class CustomFedAvg(FedAvg):
         # Get all available nodes
         all_node_ids = list(grid.get_node_ids())
         
-        # Check minimum available nodes
-        if len(all_node_ids) < self.min_available_nodes:
-            return []
-        
         # Ensure all clients are in fleet_manager
         for node_id in all_node_ids:
             if node_id not in self.fleet_manager.clients:
@@ -158,7 +154,6 @@ class CustomFedAvg(FedAvg):
         # Clear stored selection after evaluation aggregation
         self.active_node_ids = []
 
-
         return result
 
     def start(self, grid: Grid, initial_arrays: ArrayRecord, num_rounds: int = 3, timeout: float = 3600, train_config: Optional[ConfigRecord] = None, evaluate_config: Optional[ConfigRecord] = None, evaluate_fn: Optional[Callable[[int, ArrayRecord], Optional[MetricRecord]]] = None) -> Result:
@@ -180,8 +175,15 @@ class CustomFedAvg(FedAvg):
         log(INFO, "Local epochs: %s", train_config.get("local-epochs"))
         #log numero di client
         log(INFO, "Total clients: %s", len(grid.get_node_ids()))
+        #log lr
+        log(INFO, "Learning rate: %s", train_config.get("lr"))
         #log fraction
         log(INFO, "Fraction of client selected: %.2f", self.fraction_train)
+        
+        #log parametri selezione
+        if self.selection_strategy_name == "battery_aware":
+            log(INFO, "Alpha: %.2f", self.selection_params.get("alpha"))
+            log(INFO, "Min battery threshold: %.2f", self.selection_params.get("min-battery-threshold"))
         log(INFO, "")
 
         # Initialize if None

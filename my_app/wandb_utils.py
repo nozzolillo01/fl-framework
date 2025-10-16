@@ -5,7 +5,7 @@ import wandb
 
 
 
-PROJECT_NAME = "fl-client-selection-framework"
+PROJECT_NAME = "fl-framework"
 
 
 def wandb_init(strategy_name: str, num_supernodes: int, num_server_rounds: int, selection_fraction: float, local_epochs: int, lr: float, alpha: float, min_battery_threshold: float) -> None:

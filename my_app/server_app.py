@@ -3,6 +3,8 @@
 import torch
 from flwr.app import ArrayRecord, ConfigRecord, Context
 from flwr.serverapp import Grid, ServerApp
+from flwr.common import log
+from logging import INFO
 
 from my_app.task import Net, central_evaluate
 from my_app.battery_simulator import FleetManager
@@ -61,4 +63,18 @@ def main(grid: Grid, context: Context) -> None:
     # Save final model to disk
     state_dict = result.arrays.to_torch_state_dict()
     torch.save(state_dict, "final_model.pt")
+
+    # Print final metrics
+    log(INFO, "Final training metrics:")
+    for round, metrics in result.train_metrics_clientapp.items():
+        log(INFO, f"\tRound {round}: {metrics}")
+    log(INFO, "")
+    log(INFO, "Final evaluation metrics (ClientApp-side):")
+    for round, metrics in result.evaluate_metrics_clientapp.items():
+        log(INFO, f"\tRound {round}: {metrics}")
+    log(INFO, "")
+    log(INFO, "Final evaluation metrics (ServerApp-side):")
+    for round, metrics in result.evaluate_metrics_serverapp.items():
+        log(INFO, f"\tRound {round}: {metrics}")
+    log(INFO, "")
 

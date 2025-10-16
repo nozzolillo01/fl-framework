@@ -26,7 +26,7 @@ def select_random(available_nodes: list[int], fleet_manager: FleetManager, param
     if not available_nodes:
         return [], {}
     
-    sample_fraction = params.get("sample-fraction")
+    sample_fraction = params.get("selection-fraction")
     num_to_select = max(1, int(len(available_nodes) * sample_fraction))
     
     selected = random.sample(available_nodes, num_to_select)

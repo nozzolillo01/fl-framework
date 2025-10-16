@@ -97,12 +97,6 @@ class FleetManager:
             self.add_client(client_id)
         return self.clients[client_id].battery_level
 
-    def get_device_class(self, client_id: int) -> str:
-        """Get device class."""
-        if client_id not in self.clients:
-            self.add_client(client_id)
-        return getattr(self.clients[client_id], "device_class", "unknown")
-
     def get_dead_clients(self, selected_clients: list[int], local_epochs: int) -> list[int]:
         """Get clients that ran out of battery."""
         return [
@@ -153,40 +147,7 @@ class FleetManager:
             self.client_recharged_battery[client_id] = recharged
         
         # Accumulate total consumption
-        self.total_consumption_cumulative += round_consumption
-  
-    def get_fleet_stats(self, min_threshold: float = 0.0) -> dict[str, float]:
-        """Calculate fleet statistics."""
-        if not self.clients:
-            return {
-                "avg_battery": 0.0,
-                "min_battery": 0.0,
-                "eligible_clients": 0.0,
-                "fairness_jain": 0.0,
-                "total_energy_consumed": 0.0,
-            }
-
-        battery_levels = [client.battery_level for client in self.clients.values()]
-        eligible = sum(1 for client in self.clients.values() if client.is_bigger_than_threshold(min_threshold))
-
-        total_clients = len(self.clients)
-        counts = [self.client_participation_count.get(cid, 0) for cid in self.clients]
-        sum_x = sum(counts)
-        sum_x2 = sum(c * c for c in counts)
-
-        fairness_jain = 0.0
-        if total_clients > 0 and sum_x2 > 0:
-            fairness_jain = (sum_x * sum_x) / (total_clients * sum_x2)
-
-        total_energy = sum(client.total_consumption for client in self.clients.values())
-
-        return {
-            "avg_battery": sum(battery_levels) / len(battery_levels),
-            "min_battery": min(battery_levels),
-            "eligible_clients": float(eligible),
-            "fairness_jain": fairness_jain,
-            "total_energy_consumed": total_energy,
-        }
+        self.total_consumption_cumulative += round_consumption    
 
     def get_round_metrics(self, selected_clients: list[int], all_clients: list[int], min_threshold: float, local_epochs: int) -> dict[str, float]:
         """Calculate comprehensive metrics for the current round."""
@@ -244,11 +205,11 @@ class FleetManager:
             client = self.clients[client_id]
             
             # Get previous battery level (before consumption/recharge)
-            previous_battery = previous_battery_levels.get(client_id, client.battery_level)
+            previous_battery = previous_battery_levels.get(client_id)
             
             # Get consumption and recharge for this round
-            consumed = self.client_consumed_battery.get(client_id, 0.0)
-            recharged = self.client_recharged_battery.get(client_id, 0.0)
+            consumed = self.client_consumed_battery.get(client_id)
+            recharged = self.client_recharged_battery.get(client_id)
             
             client_details.append({
                 "client_id": client_id,
@@ -257,7 +218,7 @@ class FleetManager:
                 "previous_battery_level": previous_battery,
                 "consumed_battery": consumed,
                 "recharged_battery": recharged,
-                "prob_selection": prob_map.get(client_id, 0.0),
+                "prob_selection": prob_map.get(client_id),
                 "selected": client_id in selected_clients,
                 "is_above_threshold": client.is_bigger_than_threshold(min_threshold),
                 "is_dead_during_this_round": client_id in dead_clients,

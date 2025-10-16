@@ -38,3 +38,4 @@ ENV/
 *.pt
 *.pth
 *.ckpt
+*.sh
