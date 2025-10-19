@@ -130,4 +130,4 @@ def central_evaluate(server_round: int, arrays):
     loss, accuracy = test(model, testloader, device)
 
     # Return the evaluation metrics
-    return MetricRecord({"centralized_accuracy": round(accuracy, 4), "centralized_loss": round(loss, 4)})
+    return MetricRecord({ "centralized_loss": round(loss, 4), "centralized_accuracy": round(accuracy, 4)})

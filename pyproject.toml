@@ -41,7 +41,7 @@ local-epochs = 5
 lr = 0.01
 
 # Selection strategy parameters
-selection-strategy = "battery_aware"  # Options: "random", "battery_aware", "all_available"
+selection-strategy = "random"  # Options: "random", "battery_aware", "all_available"
 alpha = 2.0  # Battery weight exponent (for battery_aware strategy)
 min-battery-threshold = 0.2  # Minimum battery level (for battery_aware strategy)
 

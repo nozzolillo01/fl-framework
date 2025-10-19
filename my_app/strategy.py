@@ -3,7 +3,7 @@
 import time
 import warnings
 from collections.abc import Iterable
-from logging import INFO
+from logging import INFO, DEBUG
 from typing import Callable, Optional
 
 from flwr.common import ArrayRecord, ConfigRecord, Message, MetricRecord, RecordDict, log
@@ -37,9 +37,13 @@ class CustomFedAvg(FedAvg):
         self.selection_strategy_fn = get_selection_strategy(selection_strategy)
         self.selection_params = selection_params or {}
 
-        self.active_node_ids: list = [] # Store selected active clients for evaluation
+        self.all_node_ids: list = [] # Store all available clients
+        self.selected_node_ids: list = [] # Store selected clients
+        self.alive_node_ids: list = [] # Store clients that completed training successfully
         self.round_fleet_metrics: Optional[dict] = None # Store fleet metrics for W&B
+        
         self.round_client_details: list = [] # Store client details for W&B
+        self.round_prob_map: dict[int, float] = {} # Store selection probabilities for current round
         
 
 
@@ -50,17 +54,11 @@ class CustomFedAvg(FedAvg):
 
         # Get all available nodes
         all_node_ids = list(grid.get_node_ids())
+
+        self.all_node_ids = all_node_ids
         
-        # Ensure all clients are in fleet_manager
-        for node_id in all_node_ids:
-            if node_id not in self.fleet_manager.clients:
-                self.fleet_manager.add_client(node_id)
-        
-        # Save battery levels BEFORE update
-        previous_battery_levels = {
-            node_id: self.fleet_manager.get_battery_level(node_id)
-            for node_id in all_node_ids
-        }
+        # Reset round tracking for fleet manager
+        self.fleet_manager.reset_round_tracking()
         
         #########################################
         # Apply custom selection strategy
@@ -71,92 +69,129 @@ class CustomFedAvg(FedAvg):
             self.selection_params
         )
         
-        # Get local epochs for battery calculations
-        local_epochs = config.get("local-epochs")
-
-
-        # Identify dead clients (insufficient battery for training)
-        dead_clients = self.fleet_manager.get_dead_clients(selected_node_ids, local_epochs)
-        
-        # Exclude dead clients from actual training
-        active_node_ids = [cid for cid in selected_node_ids if cid not in dead_clients]
-
-        # Persist the selection (excluding dead clients) for evaluate
-        self.active_node_ids = list(active_node_ids)
-        
-        
-        # Calculate metrics BEFORE update
-        min_threshold = self.selection_params.get("min-battery-threshold")
-        self.round_fleet_metrics = self.fleet_manager.get_round_metrics(
-            selected_clients=selected_node_ids,
-            all_clients=all_node_ids,
-            min_threshold=min_threshold,
-            local_epochs=local_epochs
-        )
-
-        # Update fleet manager: all selected clients (including dead) consume/recharge
-        self.fleet_manager.update_round(selected_node_ids, all_node_ids, local_epochs)
-        
-        # Build client details for W&B table
-        self.round_client_details = self.fleet_manager.get_client_details(
-            all_clients=all_node_ids,
-            selected_clients=selected_node_ids,
-            dead_clients=dead_clients,
-            min_threshold=min_threshold,
-            prob_map=prob_map,
-            previous_battery_levels=previous_battery_levels
-        )
-        
+        # Store active clients and probabilities for later use
+        self.selected_node_ids = list(selected_node_ids)
+        self.round_prob_map = prob_map
         
         # Log the selection
         log(
             INFO,
-            "configure_train: Strategy [%s] sampled %s nodes (out of %s), %s active, %s dead",
+            "configure_train: Strategy [%s] sampled %s nodes (out of %s)",
             self.selection_strategy_name,
             len(selected_node_ids),
             len(all_node_ids),
-            len(active_node_ids),
-            len(dead_clients),
         )
     
         # Always inject current server round
         config["server-round"] = server_round
 
-        # Construct messages only for ACTIVE clients (excluding dead)
+        # Construct messages for selected clients
         record = RecordDict(
             {self.arrayrecord_key: arrays, self.configrecord_key: config}
         )
-        return self._construct_messages(record, active_node_ids, "train")
+        return self._construct_messages(record, selected_node_ids, "train")
 
 
-    def aggregate_train(self, server_round: int, replies: Iterable[Message], ) -> tuple[Optional[ArrayRecord], Optional[MetricRecord]]:
-        """Aggregate training results."""
-        return super().aggregate_train(server_round, replies)
+    def aggregate_train(self, server_round: int, replies: Iterable[Message]) -> tuple[Optional[ArrayRecord], Optional[MetricRecord]]:
+        """Aggregate training results and update fleet manager with battery metrics from clients."""
+        
+        
+        # Calculate failed clients by checking for errors in replies
+        responded_clients = []
+
+
+        
+        # Extract battery metrics from successful client replies
+        for reply in replies:
+            client_id = reply.metadata.src_node_id
+            
+            # Check if reply contains an error (battery exhaustion)
+            if reply.has_error():
+                continue
+            
+            # Client responded successfully
+            responded_clients.append(client_id)
+            log(INFO, f"Client {client_id} responded successfully.")
+
+            metrics_dict = dict(reply.content.get("metrics", {}))
+            
+            # Update fleet manager with reported battery status
+            battery_metrics = {
+                "device_class": metrics_dict.pop("device_class", "unknown"),
+                "battery_level": metrics_dict.pop("battery_level", 0.0),
+                "consumed": metrics_dict.pop("battery_consumed", 0.0),
+                "recharged": metrics_dict.pop("battery_recharged", 0.0),
+                "previous_battery_level": metrics_dict.pop("previous_battery_level", 0.0),
+                }
+            
+            self.fleet_manager.update_client_status(client_id, battery_metrics)
+
+            # Create cleaned reply (without battery metrics)
+            reply.content["metrics"] = MetricRecord(metrics_dict)
+
+        self.alive_node_ids = responded_clients 
+        
+        # Update participation tracking only for clients that completed training
+        if responded_clients:
+            self.fleet_manager.update_participation(responded_clients)
+        
+        # Calculate fleet metrics for logging (i can use only the clients that responded)
+
+        min_threshold = self.selection_params.get("min-battery-threshold", 0.0)
+        
+        self.round_fleet_metrics = self.fleet_manager.get_round_metrics(
+            selected_clients=self.selected_node_ids,
+            responded_clients=self.alive_node_ids,
+            total_clients=len(self.all_node_ids)
+        )
+        
+        # Build client details for W&B table
+        self.round_client_details = self.fleet_manager.get_client_details(
+            selected_clients=self.selected_node_ids,
+            responded_clients=self.alive_node_ids,
+            prob_map=self.round_prob_map,
+            min_threshold=min_threshold
+        )
+
+        # Call parent aggregation with successful replies, only with training metrics
+        if replies:
+            return super().aggregate_train(server_round, replies)
+        else:
+            # No successful replies
+            log(INFO, "No valid training results to aggregate (all clients failed)")
+            return None, None
 
 
     def configure_evaluate(self, server_round: int, arrays: ArrayRecord, config: ConfigRecord, grid: Grid) -> Iterable[Message]:
         """Configure evaluation to use the same clients selected for train."""
 
         # Use the same clients selected for training (excluding dead)
-        selected_node_ids = list(self.active_node_ids)
+        selected_for_eval_node_ids = list(self.alive_node_ids)
 
         # Inject server round
         config["server-round"] = server_round
 
         record = RecordDict({self.arrayrecord_key: arrays, self.configrecord_key: config})
-        return self._construct_messages(record, selected_node_ids, "evaluate")
+        return self._construct_messages(record, selected_for_eval_node_ids, "evaluate")
 
 
     def aggregate_evaluate(self, server_round: int, replies: Iterable[Message]) -> tuple[Optional[ArrayRecord], Optional[MetricRecord]]:
         """Aggregate evaluation results and clear persisted selection for the round."""
+    
+        for reply in replies:
+            log(INFO, f"Client {reply.metadata.src_node_id} responded successfully.")
+
         result = super().aggregate_evaluate(server_round, replies)
 
-        # Clear stored selection after evaluation aggregation
-        self.active_node_ids = []
+        # Clear storage
+        self.selected_node_ids = []
+        self.alive_node_ids = []
+
+
 
         return result
 
-    def start(self, grid: Grid, initial_arrays: ArrayRecord, num_rounds: int = 3, timeout: float = 3600, train_config: Optional[ConfigRecord] = None, evaluate_config: Optional[ConfigRecord] = None, evaluate_fn: Optional[Callable[[int, ArrayRecord], Optional[MetricRecord]]] = None) -> Result:
+    def start(self, grid: Grid, initial_arrays: ArrayRecord, num_rounds: int, timeout: float = 3600, train_config: Optional[ConfigRecord] = None, evaluate_config: Optional[ConfigRecord] = None, evaluate_fn: Optional[Callable[[int, ArrayRecord], Optional[MetricRecord]]] = None) -> Result:
         """Execute the federated learning strategy"""
 
         # Suppress wandb deprecation warnings
@@ -227,7 +262,7 @@ class CustomFedAvg(FedAvg):
                 train_replies,
             )
 
-            # Use pre-calculated fleet metrics (from configure_train, before battery update)
+            # Use fleet metrics calculated in aggregate_train (after receiving client reports)
             fleet_metrics = self.round_fleet_metrics if self.round_fleet_metrics else {}
             client_details = self.round_client_details if self.round_client_details else []
 

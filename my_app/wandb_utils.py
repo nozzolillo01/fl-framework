@@ -39,7 +39,12 @@ def log_metrics(server_round: int, metrics: dict) -> None:
         pass
 
 def log_client_details_table(server_round: int, client_details: list) -> None:
-    """Crea e registra una nuova tabella semplificata per ogni round in W&B."""
+    """Create and log a simplified table for each round to W&B.
+    
+    Args:
+        server_round: Current server round number
+        client_details: List of dicts with client information (from FleetManager)
+    """
     try:
         columns = [
             "round",
@@ -50,9 +55,9 @@ def log_client_details_table(server_round: int, client_details: list) -> None:
             "consumed_battery",
             "recharged_battery",
             "prob_selection",
-            "selected",
+            "has_completed_the_current_round",
             "is_above_threshold",
-            "is_dead_during_this_round"
+            "participation_count"
         ]
         table = wandb.Table(columns=columns)
 
@@ -68,9 +73,9 @@ def log_client_details_table(server_round: int, client_details: list) -> None:
                 round(float(client["consumed_battery"]), 4),
                 round(float(client["recharged_battery"]), 4),
                 round(float(client["prob_selection"]), 4),
-                int(client["selected"]),
+                str(client["has_completed_the_current_round"]),
                 int(client["is_above_threshold"]),
-                int(client["is_dead_during_this_round"])
+                int(client["participation_count"])
             ]
 
             table.add_data(*row)
