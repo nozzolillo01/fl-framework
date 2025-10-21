@@ -17,6 +17,8 @@ from typing import Callable, Optional
 from my_app.battery_simulator import FleetManager
 import random
 import numpy as np
+from flwr.common import log
+from logging import INFO
 
 def select_random(available_nodes: list[int], fleet_manager: FleetManager, params: dict) -> tuple[list[int], dict[int, float]]:
     """Random selection without battery awareness.
@@ -52,17 +54,11 @@ def select_battery_aware(available_nodes: list[int], fleet_manager: FleetManager
     # Filter clients below battery threshold
     eligible_node_ids = fleet_manager.get_clients_above_threshold(available_nodes, min_battery_threshold)
 
-    # Fallback: if no eligible clients, select top 2 by battery
+    # Fallback: if no eligible clients, select randomly
     if not eligible_node_ids:
-        node_battery = [
-            (node_id, fleet_manager.get_battery_level(node_id))
-            for node_id in available_nodes
-        ]
-        node_battery.sort(key=lambda x: x[1], reverse=True)
-        eligible_node_ids = [node_id for node_id, _ in node_battery[:min(2, len(node_battery))]]
-        
-        if not eligible_node_ids:
-            return [], {node_id: 0.0 for node_id in available_nodes}
+        selected = random.sample(available_nodes, max(1, int(len(available_nodes) * sample_fraction)))
+        prob_map = {node_id: 1.0 / len(available_nodes) for node_id in available_nodes}
+        return selected, prob_map
     
     # Calculate battery-based weights: weight_i = battery_i^alpha
     weights_map = fleet_manager.calculate_selection_weights(eligible_node_ids, alpha)

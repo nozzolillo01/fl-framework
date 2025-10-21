@@ -46,8 +46,6 @@ def main(grid: Grid, context: Context) -> None:
         fleet_manager=fleet_manager,
         selection_strategy=selection_strategy,
         selection_params=selection_params,
-        fraction_train=selection_fraction,
-        fraction_evaluate=selection_fraction,
     )
 
 

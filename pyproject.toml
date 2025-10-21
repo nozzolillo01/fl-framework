@@ -36,12 +36,11 @@ clientapp = "my_app.client_app:app"
 # Custom config values accessible via `context.run_config`
 [tool.flwr.app.config]
 num-server-rounds = 3
-selection-fraction = 0.5
-local-epochs = 5
+local-epochs = 2
 lr = 0.01
+selection-fraction = 0.5  # Fraction of clients to select each round
+selection-strategy = "battery_aware"  # Options: "random", "battery_aware", "all_available"
 
-# Selection strategy parameters
-selection-strategy = "random"  # Options: "random", "battery_aware", "all_available"
 alpha = 2.0  # Battery weight exponent (for battery_aware strategy)
 min-battery-threshold = 0.2  # Minimum battery level (for battery_aware strategy)
 
@@ -49,10 +48,10 @@ min-battery-threshold = 0.2  # Minimum battery level (for battery_aware strategy
 [tool.flwr.federations]
 default = "local-simulation"
 
-# Local simulation federation with 10 virtual SuperNodes
+
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 10
-options.backend.client-resources.num-cpus = 1
+options.num-supernodes = 20
+options.backend.client-resources.num-cpus = 2
 
 [tool.flwr.federations.local-deployment]
 address = "127.0.0.1:9093"

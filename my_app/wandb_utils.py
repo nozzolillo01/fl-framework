@@ -39,12 +39,10 @@ def log_metrics(server_round: int, metrics: dict) -> None:
         pass
 
 def log_client_details_table(server_round: int, client_details: list) -> None:
-    """Create and log a simplified table for each round to W&B.
+    """Create and log a table with ALL clients for each round to W&B."""
+    if not client_details:
+        return
     
-    Args:
-        server_round: Current server round number
-        client_details: List of dicts with client information (from FleetManager)
-    """
     try:
         columns = [
             "round",
@@ -55,32 +53,35 @@ def log_client_details_table(server_round: int, client_details: list) -> None:
             "consumed_battery",
             "recharged_battery",
             "prob_selection",
-            "has_completed_the_current_round",
-            "is_above_threshold",
+            "was_selected",
+            "completion_status",
+            "was_above_threshold",
             "participation_count"
         ]
-        table = wandb.Table(columns=columns)
-
         
+        
+        # Costruisci tutte le righe prima
+        rows = []
         for client in client_details:
-
             row = [
-                int(server_round),
+                server_round,
                 str(client["client_id"]),
-                str(client["device_class"]),
-                round(float(client["current_battery_level"]), 4),
-                round(float(client["previous_battery_level"]), 4),
-                round(float(client["consumed_battery"]), 4),
-                round(float(client["recharged_battery"]), 4),
-                round(float(client["prob_selection"]), 4),
-                str(client["has_completed_the_current_round"]),
-                int(client["is_above_threshold"]),
-                int(client["participation_count"])
+                client["device_class"],
+                client["current_battery_level"],
+                client["previous_battery_level"],
+                client["consumed_battery"],
+                client["recharged_battery"],
+                client["prob_selection"],
+                client["was_selected"],
+                client["completion_status"],
+                client["was_above_threshold"],
+                client["participation_count"]
             ]
+            rows.append(row)
+        
 
-            table.add_data(*row)
-
-        wandb.log({f"simplified_table_round_{server_round}": table}, step=server_round)
-
-    except Exception:
-        pass
+        table = wandb.Table(columns=columns, data=rows)
+        wandb.log({f"all_clients_details_round_{server_round}": table}, step=server_round)
+        
+    except Exception as e:
+        print(f"Warning: Failed to log client details table for round {server_round}: {e}")

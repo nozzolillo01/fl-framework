@@ -3,7 +3,7 @@
 import time
 import warnings
 from collections.abc import Iterable
-from logging import INFO, DEBUG
+from logging import INFO
 from typing import Callable, Optional
 
 from flwr.common import ArrayRecord, ConfigRecord, Message, MetricRecord, RecordDict, log
@@ -45,10 +45,6 @@ class CustomFedAvg(FedAvg):
         self.round_client_details: list = [] # Store client details for W&B
         self.round_prob_map: dict[int, float] = {} # Store selection probabilities for current round
         
-
-
-
-
     def configure_train(self, server_round: int, arrays: ArrayRecord, config: ConfigRecord, grid: Grid) -> Iterable[Message]:
         """Configure the next round of federated training with custom client selection."""
 
@@ -57,12 +53,10 @@ class CustomFedAvg(FedAvg):
 
         self.all_node_ids = all_node_ids
         
-        # Reset round tracking for fleet manager
-        self.fleet_manager.reset_round_tracking()
+        # Query battery status from ALL clients (to get updated levels)
+        self.query_all_batteries(grid)
         
-        #########################################
-        # Apply custom selection strategy
-        #########################################
+        # Apply custom selection strategy with updated battery levels
         selected_node_ids, prob_map = self.selection_strategy_fn(
             all_node_ids,
             self.fleet_manager,
@@ -81,8 +75,8 @@ class CustomFedAvg(FedAvg):
             len(selected_node_ids),
             len(all_node_ids),
         )
-    
-        # Always inject current server round
+
+        # Inject current server round
         config["server-round"] = server_round
 
         # Construct messages for selected clients
@@ -91,16 +85,12 @@ class CustomFedAvg(FedAvg):
         )
         return self._construct_messages(record, selected_node_ids, "train")
 
-
     def aggregate_train(self, server_round: int, replies: Iterable[Message]) -> tuple[Optional[ArrayRecord], Optional[MetricRecord]]:
         """Aggregate training results and update fleet manager with battery metrics from clients."""
-        
         
         # Calculate failed clients by checking for errors in replies
         responded_clients = []
 
-
-        
         # Extract battery metrics from successful client replies
         for reply in replies:
             client_id = reply.metadata.src_node_id
@@ -108,59 +98,58 @@ class CustomFedAvg(FedAvg):
             # Check if reply contains an error (battery exhaustion)
             if reply.has_error():
                 continue
-            
+
             # Client responded successfully
             responded_clients.append(client_id)
-            log(INFO, f"Client {client_id} responded successfully.")
 
             metrics_dict = dict(reply.content.get("metrics", {}))
             
-            # Update fleet manager with reported battery status
+            # Update fleet manager with reported battery status (after training consumption)
             battery_metrics = {
                 "device_class": metrics_dict.pop("device_class", "unknown"),
                 "battery_level": metrics_dict.pop("battery_level", 0.0),
                 "consumed": metrics_dict.pop("battery_consumed", 0.0),
-                "recharged": metrics_dict.pop("battery_recharged", 0.0),
                 "previous_battery_level": metrics_dict.pop("previous_battery_level", 0.0),
                 }
+            # Note: recharged is already tracked in update_pre_training (during query phase)
             
-            self.fleet_manager.update_client_status(client_id, battery_metrics)
+            #Update fleet manager with reported battery status for the client who responded successfully after training
+            self.fleet_manager.update_after_training(client_id, battery_metrics)
 
             # Create cleaned reply (without battery metrics)
             reply.content["metrics"] = MetricRecord(metrics_dict)
 
-        self.alive_node_ids = responded_clients 
+        self.alive_node_ids = responded_clients
         
         # Update participation tracking only for clients that completed training
         if responded_clients:
             self.fleet_manager.update_participation(responded_clients)
         
-        # Calculate fleet metrics for logging (i can use only the clients that responded)
-
+        # Calculate fleet metrics for logging
         min_threshold = self.selection_params.get("min-battery-threshold", 0.0)
         
         self.round_fleet_metrics = self.fleet_manager.get_round_metrics(
             selected_clients=self.selected_node_ids,
             responded_clients=self.alive_node_ids,
-            total_clients=len(self.all_node_ids)
+            total_clients=self.all_node_ids
         )
         
-        # Build client details for W&B table
+        # Build client details for W&B table (include ALL clients)
         self.round_client_details = self.fleet_manager.get_client_details(
+            all_clients=self.all_node_ids,
             selected_clients=self.selected_node_ids,
             responded_clients=self.alive_node_ids,
             prob_map=self.round_prob_map,
             min_threshold=min_threshold
         )
 
-        # Call parent aggregation with successful replies, only with training metrics
+        # Call parent aggregation
         if replies:
             return super().aggregate_train(server_round, replies)
         else:
-            # No successful replies
+            # No valid training results to aggregate (all clients failed)
             log(INFO, "No valid training results to aggregate (all clients failed)")
             return None, None
-
 
     def configure_evaluate(self, server_round: int, arrays: ArrayRecord, config: ConfigRecord, grid: Grid) -> Iterable[Message]:
         """Configure evaluation to use the same clients selected for train."""
@@ -174,12 +163,9 @@ class CustomFedAvg(FedAvg):
         record = RecordDict({self.arrayrecord_key: arrays, self.configrecord_key: config})
         return self._construct_messages(record, selected_for_eval_node_ids, "evaluate")
 
-
     def aggregate_evaluate(self, server_round: int, replies: Iterable[Message]) -> tuple[Optional[ArrayRecord], Optional[MetricRecord]]:
         """Aggregate evaluation results and clear persisted selection for the round."""
-    
-        for reply in replies:
-            log(INFO, f"Client {reply.metadata.src_node_id} responded successfully.")
+
 
         result = super().aggregate_evaluate(server_round, replies)
 
@@ -187,11 +173,55 @@ class CustomFedAvg(FedAvg):
         self.selected_node_ids = []
         self.alive_node_ids = []
 
-
-
         return result
 
-    def start(self, grid: Grid, initial_arrays: ArrayRecord, num_rounds: int, timeout: float = 3600, train_config: Optional[ConfigRecord] = None, evaluate_config: Optional[ConfigRecord] = None, evaluate_fn: Optional[Callable[[int, ArrayRecord], Optional[MetricRecord]]] = None) -> Result:
+    def query_all_batteries(self, grid: Grid, timeout: float = 60) -> None:
+        """Query battery status from all clients and update FleetManager.
+
+        This is called at the start of each round in configure_train().
+
+        Clients will apply idle_recharge() before responding (except first time).
+        
+        Args:
+            grid: Grid instance to get client nodes
+            timeout: Timeout for battery query
+        """
+        all_node_ids = list(grid.get_node_ids())
+        
+        log(INFO, f"Querying battery status from all {len(all_node_ids)} clients...")
+        
+        # Send battery status query to all clients
+        query_config = ConfigRecord()
+        query_record = RecordDict({"config": query_config})
+
+        query_messages = self._construct_messages(query_record, all_node_ids, "query")
+        
+        battery_replies = grid.send_and_receive(
+            messages=query_messages,
+            timeout=timeout,
+        )
+        
+        # Update fleet manager with battery levels (after recharge)
+        for reply in battery_replies:
+            if not reply.has_error():
+                client_id = reply.metadata.src_node_id
+                metrics = dict(reply.content.get("metrics", {}))
+                battery_metrics = {
+                    "device_class": metrics.get("device_class", 0),
+                    "battery_level": metrics.get("battery_level", 0.0),
+                    "recharged": metrics.get("battery_recharged", 0.0),
+                    "previous_battery_level": metrics.get("previous_battery_level", 0.0)
+                    }
+                self.fleet_manager.update_pre_training(client_id, battery_metrics)
+
+    def start(self,
+              grid: Grid,
+              initial_arrays: ArrayRecord,
+              num_rounds: int,
+              timeout: float = 3600,
+              train_config: Optional[ConfigRecord] = None,
+              evaluate_config: Optional[ConfigRecord] = None,
+              evaluate_fn: Optional[Callable[[int, ArrayRecord], Optional[MetricRecord]]] = None) -> Result:
         """Execute the federated learning strategy"""
 
         # Suppress wandb deprecation warnings
@@ -199,7 +229,15 @@ class CustomFedAvg(FedAvg):
         warnings.filterwarnings("ignore", category=DeprecationWarning, module="google.protobuf")
 
         # Init W&B
-        wandb_init(strategy_name=self.selection_strategy_name, num_supernodes=len(grid.get_node_ids()), num_server_rounds=num_rounds, selection_fraction=self.fraction_train, local_epochs=train_config.get("local-epochs") if train_config else None, lr=train_config.get("lr") if train_config else None, alpha=self.selection_params.get("alpha"), min_battery_threshold=self.selection_params.get("min-battery-threshold"))
+        wandb_init(
+            strategy_name=self.selection_strategy_name,
+            num_supernodes=len(grid.get_node_ids()),
+            num_server_rounds=num_rounds,
+            selection_fraction=self.selection_params.get("selection-fraction"),
+            local_epochs=train_config.get("local-epochs") if train_config else None,
+            lr=train_config.get("lr") if train_config else None,
+            alpha=self.selection_params.get("alpha"),
+            min_battery_threshold=self.selection_params.get("min-battery-threshold"))
 
         log(INFO, "")
         log(INFO, "Starting %s with [%s] client selection strategy...", self.__class__.__name__, self.selection_strategy_name)
@@ -213,10 +251,11 @@ class CustomFedAvg(FedAvg):
         #log lr
         log(INFO, "Learning rate: %s", train_config.get("lr"))
         #log fraction
-        log(INFO, "Fraction of client selected: %.2f", self.fraction_train)
-        
+        log(INFO, "Fraction of clients selected: %.2f", self.selection_params.get("selection-fraction", 0.0))
+
         #log parametri selezione
         if self.selection_strategy_name == "battery_aware":
+            
             log(INFO, "Alpha: %.2f", self.selection_params.get("alpha"))
             log(INFO, "Min battery threshold: %.2f", self.selection_params.get("min-battery-threshold"))
         log(INFO, "")
@@ -227,6 +266,7 @@ class CustomFedAvg(FedAvg):
         result = Result()
 
         t_start = time.time()
+
         # Evaluate starting global parameters
         if evaluate_fn:
             res = evaluate_fn(0, initial_arrays)
