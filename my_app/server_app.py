@@ -75,4 +75,3 @@ def main(grid: Grid, context: Context) -> None:
     for round, metrics in result.evaluate_metrics_serverapp.items():
         log(INFO, f"\tRound {round}: {metrics}")
     log(INFO, "")
-

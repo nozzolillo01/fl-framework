@@ -103,14 +103,12 @@ def select_all_available(available_nodes: list[int], fleet_manager: FleetManager
     prob_map = {node_id: 1.0 for node_id in available_nodes}
     return available_nodes, prob_map
 
-
 # Dictionary of available strategies
 STRATEGIES = {
     "random": select_random,
     "battery_aware": select_battery_aware,
     "all_available": select_all_available,
 }
-
 
 def get_selection_strategy(name: str) -> Optional[Callable[[list[int], FleetManager, dict], tuple[list[int], dict[int, float]]]]:
     """Get a selection strategy function by name.

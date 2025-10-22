@@ -150,7 +150,6 @@ class FleetManager:
         # Track client initialization to detect inconsistencies
         self.client_initialized: dict[int, bool] = {}
 
-
     def update_pre_training(self,client_id:int, battery_metrics: dict) -> None:
         """Update client status before training based on reported metrics from ClientApp.
         
@@ -168,8 +167,6 @@ class FleetManager:
         self.round_recharged[client_id] = recharged
         self.round_previous_levels[client_id] = previous_battery_level
 
-
-
     def update_after_training(self, client_id: int, battery_metrics: dict) -> None:
         """Update client status based on reported metrics from ClientApp.
         
@@ -184,8 +181,6 @@ class FleetManager:
         self.client_device_classes[client_id] = device_class
         self.client_battery_levels[client_id] = battery_level
         self.round_consumed[client_id] = consumed
-        # Note: round_recharged is already set in update_pre_training (during query phase)
-        # Note: round_previous_levels is now the level BEFORE consumption (after recharge)
         # Update cumulative consumption
         self.total_consumption_cumulative += consumed
 
@@ -194,22 +189,6 @@ class FleetManager:
         for client_id in client_ids:
             old_count = self.client_participation_count.get(client_id, 0)
             self.client_participation_count[client_id] = old_count + 1
-
-    def get_clients_above_threshold(self, client_ids: list[int], min_threshold: float = 0.0) -> list[int]:
-        """Filter clients by battery threshold based on reported levels."""
-        eligible = [
-            cid for cid in client_ids
-            if self.client_battery_levels.get(cid, 0.0) >= min_threshold
-        ]
-        return eligible
-
-    def calculate_selection_weights(self, client_ids: list[int], alpha: float = 2.0) -> dict[int, float]:
-        """Calculate selection weights (battery^alpha) based on reported levels."""
-        weights = {}
-        for client_id in client_ids:
-            battery_level = self.client_battery_levels.get(client_id, 0.0)
-            weights[client_id] = battery_level ** alpha
-        return weights
 
     def get_round_metrics(self, selected_clients: list[int], responded_clients: list[int], total_clients: list[int]) -> dict[str, float]:
         """Calculate fleet metrics for the current round.
@@ -332,4 +311,19 @@ class FleetManager:
         
         return client_details
 
+    def calculate_selection_weights(self, client_ids: list[int], alpha: float = 2.0) -> dict[int, float]:
+        """Calculate selection weights (battery^alpha) based on reported levels."""
+        weights = {}
+        for client_id in client_ids:
+            battery_level = self.client_battery_levels.get(client_id, 0.0)
+            weights[client_id] = battery_level ** alpha
+        return weights
+
+    def get_clients_above_threshold(self, client_ids: list[int], min_threshold: float = 0.0) -> list[int]:
+        """Filter clients by battery threshold based on reported levels."""
+        eligible = [
+            cid for cid in client_ids
+            if self.client_battery_levels.get(cid, 0.0) >= min_threshold
+        ]
+        return eligible
 

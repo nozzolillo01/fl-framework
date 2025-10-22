@@ -45,6 +45,45 @@ class CustomFedAvg(FedAvg):
         self.round_client_details: list = [] # Store client details for W&B
         self.round_prob_map: dict[int, float] = {} # Store selection probabilities for current round
         
+    def query_all_batteries(self, grid: Grid, timeout: float = 60) -> None:
+        """Query battery status from all clients and update FleetManager.
+
+        This is called at the start of each round in configure_train().
+
+        Clients will apply idle_recharge() before responding (except first time).
+        
+        Args:
+            grid: Grid instance to get client nodes
+            timeout: Timeout for battery query
+        """
+        all_node_ids = list(grid.get_node_ids())
+        
+        log(INFO, f"Querying battery status from all {len(all_node_ids)} clients...")
+        
+        # Send battery status query to all clients
+        query_config = ConfigRecord()
+        query_record = RecordDict({"config": query_config})
+
+        query_messages = self._construct_messages(query_record, all_node_ids, "query")
+        
+        battery_replies = grid.send_and_receive(
+            messages=query_messages,
+            timeout=timeout,
+        )
+        
+        # Update fleet manager with battery levels (after recharge)
+        for reply in battery_replies:
+            if not reply.has_error():
+                client_id = reply.metadata.src_node_id
+                metrics = dict(reply.content.get("metrics", {}))
+                battery_metrics = {
+                    "device_class": metrics.get("device_class", 0),
+                    "battery_level": metrics.get("battery_level", 0.0),
+                    "recharged": metrics.get("battery_recharged", 0.0),
+                    "previous_battery_level": metrics.get("previous_battery_level", 0.0)
+                    }
+                self.fleet_manager.update_pre_training(client_id, battery_metrics)
+    
     def configure_train(self, server_round: int, arrays: ArrayRecord, config: ConfigRecord, grid: Grid) -> Iterable[Message]:
         """Configure the next round of federated training with custom client selection."""
 
@@ -175,45 +214,7 @@ class CustomFedAvg(FedAvg):
 
         return result
 
-    def query_all_batteries(self, grid: Grid, timeout: float = 60) -> None:
-        """Query battery status from all clients and update FleetManager.
-
-        This is called at the start of each round in configure_train().
-
-        Clients will apply idle_recharge() before responding (except first time).
-        
-        Args:
-            grid: Grid instance to get client nodes
-            timeout: Timeout for battery query
-        """
-        all_node_ids = list(grid.get_node_ids())
-        
-        log(INFO, f"Querying battery status from all {len(all_node_ids)} clients...")
-        
-        # Send battery status query to all clients
-        query_config = ConfigRecord()
-        query_record = RecordDict({"config": query_config})
-
-        query_messages = self._construct_messages(query_record, all_node_ids, "query")
-        
-        battery_replies = grid.send_and_receive(
-            messages=query_messages,
-            timeout=timeout,
-        )
-        
-        # Update fleet manager with battery levels (after recharge)
-        for reply in battery_replies:
-            if not reply.has_error():
-                client_id = reply.metadata.src_node_id
-                metrics = dict(reply.content.get("metrics", {}))
-                battery_metrics = {
-                    "device_class": metrics.get("device_class", 0),
-                    "battery_level": metrics.get("battery_level", 0.0),
-                    "recharged": metrics.get("battery_recharged", 0.0),
-                    "previous_battery_level": metrics.get("previous_battery_level", 0.0)
-                    }
-                self.fleet_manager.update_pre_training(client_id, battery_metrics)
-
+   
     def start(self,
               grid: Grid,
               initial_arrays: ArrayRecord,

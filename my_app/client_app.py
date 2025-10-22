@@ -58,7 +58,6 @@ def get_battery_status(msg: Message, context: Context):
         reply_to=msg
     )
 
-
 @app.train()
 def train(msg: Message, context: Context):
     """Train the model on local data with battery simulation."""
@@ -130,7 +129,6 @@ def train(msg: Message, context: Context):
         content=RecordDict({"arrays": model_record, "metrics": metrics}),
         reply_to=msg
     )
-
 
 @app.evaluate()
 def evaluate(msg: Message, context: Context):

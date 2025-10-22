@@ -29,17 +29,14 @@ class Net(nn.Module):
         x = F.relu(self.fc2(x))
         return self.fc3(x)
 
-
 fds = None  # Cache FederatedDataset
 
 pytorch_transforms = Compose([ToTensor(), Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-
 
 def apply_transforms(batch):
     """Apply transforms to the partition from FederatedDataset."""
     batch["img"] = [pytorch_transforms(img) for img in batch["img"]]
     return batch
-
 
 def load_data(partition_id: int, num_partitions: int):
     """Load partition CIFAR10 data."""
@@ -60,7 +57,6 @@ def load_data(partition_id: int, num_partitions: int):
     trainloader = DataLoader(partition_train_test["train"], batch_size=32, shuffle=True) 
     testloader = DataLoader(partition_train_test["test"], batch_size=32)  
     return trainloader, testloader
-
 
 def train(net, trainloader, epochs, lr, device):
     """Train the model on the training set."""
@@ -91,7 +87,6 @@ def train(net, trainloader, epochs, lr, device):
     accuracy = correct / total
     return avg_trainloss, accuracy
 
-
 def test(net, testloader, device):
     """Validate the model on the test set."""
     net.to(device)
@@ -107,7 +102,6 @@ def test(net, testloader, device):
     accuracy = correct / len(testloader.dataset)
     loss = loss / len(testloader)
     return loss, accuracy
-
 
 def central_evaluate(server_round: int, arrays):
     """Evaluate model on the server side using centralized test set."""
