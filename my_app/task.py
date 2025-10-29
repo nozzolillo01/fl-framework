@@ -44,9 +44,9 @@ def load_data(partition_id: int, num_partitions: int):
     global fds
     if fds is None:
         #partitioner = IidPartitioner(num_partitions=num_partitions)
-        partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5)
+        partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.1)
         fds = FederatedDataset(
-            dataset="uoft-cs/cifar10",
+            dataset="nozzolillo01/PlantVillage10",
             partitioners={"train": partitioner},
         )
     partition = fds.load_partition(partition_id)
@@ -114,10 +114,10 @@ def central_evaluate(server_round: int, arrays):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
-    # Load the entire CIFAR10 test dataset
-    cifar10_test = load_dataset("uoft-cs/cifar10", split="test")
+    # Load the entire PlantVillage10 test dataset
+    plantvillage10_test = load_dataset("nozzolillo01/PlantVillage10", split="test")
 
-    testset = cifar10_test.with_transform(apply_transforms) 
+    testset = plantvillage10_test.with_transform(apply_transforms) 
     testloader = DataLoader(testset, batch_size=64)
 
     # Evaluate the model on the test set
