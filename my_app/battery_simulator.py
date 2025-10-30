@@ -150,39 +150,37 @@ class FleetManager:
         # Track client initialization to detect inconsistencies
         self.client_initialized: dict[int, bool] = {}
 
-    def update_pre_training(self,client_id:int, battery_metrics: dict) -> None:
-        """Update client status before training based on reported metrics from ClientApp.
+    def update_client_info(self, client_id: int, client_report: dict) -> None:
+        """Update battery info for a specific client based on its report.
         
-        This is called after the query phase, so ALL clients (selected and not) have recharged.
+        Chiamato:
+        - Prima del round 1: solo battery_level e device_class
+        - Dopo ogni round N: batteria_attuale, batteria_passata, delta_scarica, delta_ricarica, battery_level
+        
+        Args:
+            client_id: Unique identifier for the client
+            client_report: Dict with reported battery metrics from the client
         """
-        device_class = battery_metrics.get("device_class", "unknown")
-        battery_level = battery_metrics.get("battery_level", 0.0)
-        recharged = battery_metrics.get("recharged", 0.0)
-        previous_battery_level = battery_metrics.get("previous_battery_level", battery_level)
+        # Update device class
+        self.client_device_classes[client_id] = client_report.get("device_class", -1)
         
-        self.client_device_classes[client_id] = device_class
-        self.client_battery_levels[client_id] = battery_level
+        # Update battery level for next selection (after recharge)
+        self.client_battery_levels[client_id] = client_report.get("battery_level", 0.0)
         
-        # Track recharge for ALL clients (happens during query phase)
-        self.round_recharged[client_id] = recharged
-        self.round_previous_levels[client_id] = previous_battery_level
-
-    def update_after_training(self, client_id: int, battery_metrics: dict) -> None:
-        """Update client status based on reported metrics from ClientApp.
-        
-        This is called only for clients that were selected and completed training.
-        It updates consumption and final battery level, but NOT recharge (already set in pre_training).
-        """
-        device_class = battery_metrics.get("device_class", "unknown")
-        battery_level = battery_metrics.get("battery_level", 0.0)
-        consumed = battery_metrics.get("consumed", 0.0)
-        previous_battery_level = battery_metrics.get("previous_battery_level", 0.0)
-        
-        self.client_device_classes[client_id] = device_class
-        self.client_battery_levels[client_id] = battery_level
-        self.round_consumed[client_id] = consumed
-        # Update cumulative consumption
-        self.total_consumption_cumulative += consumed
+        # If this is round completion report (contains delta info)
+        if "delta_scarica" in client_report:
+            # batteria_passata è il livello all'inizio del round
+            previous_level = client_report.get("batteria_passata", 0.0)
+            self.round_previous_levels[client_id] = previous_level
+            
+            # Update consumption
+            consumed = client_report.get("delta_scarica", 0.0)
+            self.total_consumption_cumulative += consumed
+            self.round_consumed[client_id] = consumed
+            
+            # Update recharged amount
+            recharged = client_report.get("delta_ricarica", 0.0)
+            self.round_recharged[client_id] = recharged
 
     def update_participation(self, client_ids: list[int]) -> None:
         """Track client participation counts."""

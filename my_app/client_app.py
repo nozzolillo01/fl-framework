@@ -16,41 +16,80 @@ app = ClientApp()
 
 @app.query()
 def get_battery_status(msg: Message, context: Context):
-    """Report current battery status."""
+    """Report battery status - handles both initial query and post-round queries.
+    
+    FIRST call (before round 1): Returns only device_class and battery_level
+    SUBSEQUENT calls (after each round): Returns complete round history
+    """
     node_id = context.node_id
 
-    # Initialize battery simulator for this client if not already present in context state
+    # Check if this is the first query (initialization)
     if "battery_sim_state" not in context.state:
-        # First initialization - create with deterministic device class
+        # FIRST QUERY - Initialize battery simulator
         battery_sim = BatterySimulator(client_id=node_id)
-
-        # Save initial battery state to context
+        
+        # Apply initial recharge
+        recharge_info = battery_sim.recharge()
+        initial_recharged = recharge_info.get("recharged", 0.0)
+        
+        # Save state for first round
         context.state["battery_sim_state"] = ConfigRecord({
             "battery_level": battery_sim.battery_level,
             "device_class": battery_sim.device_class,
+            "round_start_battery": battery_sim.battery_level,
+            "round_consumed": 0.0,
+            "round_recharged": initial_recharged,
         })
-    else:
-        # Restore from saved state
-        state = context.state["battery_sim_state"]
-        battery_sim = BatterySimulator(client_id=node_id)
-        battery_sim.battery_level = state["battery_level"]
-        battery_sim.device_class = state["device_class"]
+        
+        # Return only initial info
+        metrics = MetricRecord({
+            "device_class": battery_sim.device_class,
+            "battery_level": battery_sim.battery_level,
+        })
+        
+        return Message(
+            content=RecordDict({"metrics": metrics}),
+            reply_to=msg
+        )
     
-    # ALL clients recharge at the beginning of each round (whether selected or not)
+    # SUBSEQUENT QUERIES - Return complete round history
+    state = context.state["battery_sim_state"]
+    battery_sim = BatterySimulator(client_id=node_id)
+    battery_sim.battery_level = state["battery_level"]
+    battery_sim.device_class = state["device_class"]
+    
+    # Get round history from state
+    round_start_battery = state.get("round_start_battery", battery_sim.battery_level)
+    round_consumed = state.get("round_consumed", 0.0)
+    round_recharged = state.get("round_recharged", 0.0)
+    
+    # Current battery is at end of round (after consumption, before next recharge)
+    batteria_attuale = battery_sim.battery_level
+    batteria_passata = round_start_battery
+    delta_scarica = round_consumed
+    delta_ricarica = round_recharged
+    
+    # Apply recharge for NEXT round
     recharge_info = battery_sim.recharge()
+    next_round_recharged = recharge_info.get("recharged", 0.0)
     
-    # Save updated battery state after recharge
+    # Save state for next round
     context.state["battery_sim_state"] = ConfigRecord({
-        "battery_level": battery_sim.battery_level,
+        "battery_level": battery_sim.battery_level,  # After recharge
         "device_class": battery_sim.device_class,
+        "round_start_battery": battery_sim.battery_level,  # This will be start of next round
+        "round_consumed": 0.0,  # Will be updated in train() if selected
+        "round_recharged": next_round_recharged,  # Recharge we just applied
     })
     
-    # Return current battery status for this specific client (including recharge info)
+    # Return completed round info
     metrics = MetricRecord({
-        "battery_level": battery_sim.battery_level,
         "device_class": battery_sim.device_class,
-        "battery_recharged": recharge_info.get("recharged", 0.0),
-        "previous_battery_level": recharge_info.get("previous_battery_level", 0.0),
+        "batteria_attuale": batteria_attuale,
+        "batteria_passata": batteria_passata,
+        "delta_scarica": delta_scarica,
+        "delta_ricarica": delta_ricarica,
+        "battery_for_selection": battery_sim.battery_level,  # After recharge, for next round
     })
     
     return Message(
@@ -64,40 +103,31 @@ def train(msg: Message, context: Context):
     node_id = context.node_id
     local_epochs = context.run_config["local-epochs"]
 
-    # Restore battery simulator state (should have been created in query(), but defensive programming)
-    if "battery_sim_state" not in context.state:
-        battery_sim = BatterySimulator(client_id=node_id)
-        context.state["battery_sim_state"] = ConfigRecord({
-            "battery_level": battery_sim.battery_level,
-            "device_class": battery_sim.device_class,
-            "client_id": node_id
-        })
-    else:
-        # Restore from saved state
-        state = context.state["battery_sim_state"]
-        battery_sim = BatterySimulator(client_id=node_id)
-        battery_sim.battery_level = state["battery_level"]
-        battery_sim.device_class = state["device_class"]
+    # Restore battery simulator state
+    state = context.state["battery_sim_state"]
+    battery_sim = BatterySimulator(client_id=node_id)
+    battery_sim.battery_level = state["battery_level"]
+    battery_sim.device_class = state["device_class"]
     
-    # Consume battery for training (only selected clients do this)
+    # Consume battery for training
     round_info = battery_sim.consume(local_epochs)
+    consumed = round_info.get("consumed", 0.0)
 
-    # Save updated battery state back to context
+    # Update state with consumption info (will be reported in next query)
     context.state["battery_sim_state"] = ConfigRecord({
-        "battery_level": battery_sim.battery_level,
+        "battery_level": battery_sim.battery_level,  # After consumption
         "device_class": battery_sim.device_class,
-        "client_id": node_id
+        "round_start_battery": state.get("round_start_battery", battery_sim.battery_level),
+        "round_consumed": consumed,  # Save consumption for next query
+        "round_recharged": state.get("round_recharged", 0.0),
     })
 
     if not round_info["training_completed"]:
-        #battery is insufficient, return error
-        error = Error(
-            code=1,
-            reason=f"ran out of battery"
-        )
+        # Battery is insufficient, return error
+        error = Error(code=1, reason=f"ran out of battery")
         return Message(error=error, reply_to=msg)
 
-    # battery is sufficient - proceed with actual training
+    # Battery is sufficient - proceed with actual training
     model = Net()
     model.load_state_dict(msg.content["arrays"].to_torch_state_dict())
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -112,17 +142,12 @@ def train(msg: Message, context: Context):
         model, trainloader, local_epochs, msg.content["config"]["lr"], device
     )
     
-    # Return updated model and metrics, including battery info
+    # Return updated model and metrics (NO battery info here, it's in query)
     model_record = ArrayRecord(model.state_dict())
     metrics = MetricRecord({
         "train_loss": train_loss,
         "train_accuracy": train_accuracy,
         "num-examples": len(trainloader.dataset),
-        # Battery metrics from the training attempt (consumption only, recharge happens in query)
-        "device_class": round_info.get("device_class", "unknown"),
-        "battery_level": round_info.get("battery_level", 0.0),
-        "previous_battery_level": round_info.get("previous_battery_level", 0.0),
-        "battery_consumed": round_info.get("consumed", 0.0),
     })
     
     return Message(
