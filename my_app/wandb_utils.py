@@ -45,10 +45,10 @@ def log_client_details_table(server_round: int, client_details: list) -> None:
             "round",
             "client_id",
             "device_class",
-            "current_battery_level",
+            "battery_level",
             "previous_battery_level",
-            "consumed_battery",
-            "recharged_battery",
+            "consumed",
+            "recharged",
             "prob_selection",
             "was_selected",
             "completion_status",
@@ -57,17 +57,17 @@ def log_client_details_table(server_round: int, client_details: list) -> None:
         ]
         
         
-        # Costruisci tutte le righe prima
+        # Build all rows first
         rows = []
         for client in client_details:
             row = [
                 server_round,
                 str(client["client_id"]),
                 client["device_class"],
-                client["current_battery_level"],
+                client["battery_level"],
                 client["previous_battery_level"],
-                client["consumed_battery"],
-                client["recharged_battery"],
+                client["consumed"],
+                client["recharged"],
                 client["prob_selection"],
                 client["was_selected"],
                 client["completion_status"],

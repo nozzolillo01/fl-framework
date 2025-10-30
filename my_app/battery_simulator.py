@@ -59,6 +59,7 @@ class BatterySimulator:
         cmin, cmax = self.DEVICE_CLASSES[self.device_class]["consumption_range"]
         hmin, hmax = self.DEVICE_CLASSES[self.device_class]["harvesting_range"]
 
+
     def consume(self, local_epochs: int) -> dict:
         """Simulate training: consume battery, then recharge via energy harvesting.
         
@@ -93,7 +94,6 @@ class BatterySimulator:
         self.total_consumption += consumed
         
         return {
-            "device_class": self.device_class,
             "battery_level": self.battery_level,
             "previous_battery_level": previous_level,
             "consumed": consumed,
@@ -124,7 +124,6 @@ class BatterySimulator:
         self.battery_level = min(1.0, self.battery_level + harvested)
         
         return {
-            "device_class": self.device_class,
             "battery_level": self.battery_level,
             "previous_battery_level": previous_level,
             "recharged": harvested,
@@ -139,13 +138,13 @@ class FleetManager:
     
     def __init__(self):
         """Initialize fleet manager."""
-        self.client_battery_levels: dict[int, float] = {}
-        self.client_device_classes: dict[int, int] = {}  # Store as int, not str
-        self.client_participation_count: dict[int, int] = {}
+        self.all_client_battery_levels: dict[int, float] = {}
+        self.all_client_device_classes: dict[int, int] = {} 
+        self.all_client_participation_count: dict[int, int] = {}
         self.total_consumption_cumulative: float = 0.0
         self.round_consumed: dict[int, float] = {}
         self.round_recharged: dict[int, float] = {}
-        self.round_previous_levels: dict[int, float] = {}
+        self.all_previous_battery_levels: dict[int, float] = {}
         
         # Track client initialization to detect inconsistencies
         self.client_initialized: dict[int, bool] = {}
@@ -153,40 +152,37 @@ class FleetManager:
     def update_client_info(self, client_id: int, client_report: dict) -> None:
         """Update battery info for a specific client based on its report.
         
-        Chiamato:
-        - Prima del round 1: solo battery_level e device_class
-        - Dopo ogni round N: batteria_attuale, batteria_passata, delta_scarica, delta_ricarica, battery_level
+        Called:
+        - Before round 1: only battery_level and device_class
+        - After each round N: current_battery, previous_battery, consumed, recharged, battery_level
         
         Args:
             client_id: Unique identifier for the client
             client_report: Dict with reported battery metrics from the client
         """
         # Update device class
-        self.client_device_classes[client_id] = client_report.get("device_class", -1)
+        self.all_client_device_classes[client_id] = client_report.get("device_class", -1)
+        self.all_client_battery_levels[client_id] = client_report.get("battery_level", 0.0)
         
-        # Update battery level for next selection (after recharge)
-        self.client_battery_levels[client_id] = client_report.get("battery_level", 0.0)
-        
-        # If this is round completion report (contains delta info)
-        if "delta_scarica" in client_report:
-            # batteria_passata è il livello all'inizio del round
-            previous_level = client_report.get("batteria_passata", 0.0)
-            self.round_previous_levels[client_id] = previous_level
+        # If this is round completion report (contains consumption info)
+        if "consumed" in client_report:
+            # Update previous level
+            self.all_previous_battery_levels[client_id] = client_report.get("previous_battery_level", 0.0)
             
             # Update consumption
-            consumed = client_report.get("delta_scarica", 0.0)
+            consumed = client_report.get("consumed", 0.0)
             self.total_consumption_cumulative += consumed
             self.round_consumed[client_id] = consumed
             
             # Update recharged amount
-            recharged = client_report.get("delta_ricarica", 0.0)
+            recharged = client_report.get("recharged", 0.0)
             self.round_recharged[client_id] = recharged
 
     def update_participation(self, client_ids: list[int]) -> None:
         """Track client participation counts."""
         for client_id in client_ids:
-            old_count = self.client_participation_count.get(client_id, 0)
-            self.client_participation_count[client_id] = old_count + 1
+            old_count = self.all_client_participation_count.get(client_id, 0)
+            self.all_client_participation_count[client_id] = old_count + 1
 
     def get_round_metrics(self, selected_clients: list[int], responded_clients: list[int], total_clients: list[int]) -> dict[str, float]:
         """Calculate fleet metrics for the current round.
@@ -197,30 +193,21 @@ class FleetManager:
             
         Returns:
             Dict with fleet-level metrics
-        """
-        # Initialize battery stats
-        responded_battery_min = 0.0
-        responded_battery_max = 0.0
-        responded_battery_avg = 0.0
-        
-        if responded_clients:
-            # Battery stats for all clients alive this round
-            all_previous_battery_levels = [
-                self.round_previous_levels.get(cid, 0.0)
-                for cid in responded_clients
-                if cid in self.round_previous_levels
-            ]
+        """        
 
-            responded_battery_min = min(all_previous_battery_levels) if all_previous_battery_levels else 0.0
-            responded_battery_max = max(all_previous_battery_levels) if all_previous_battery_levels else 0.0
-            responded_battery_avg = sum(all_previous_battery_levels) / len(all_previous_battery_levels) if all_previous_battery_levels else 0.0
+        if len(self.all_previous_battery_levels) == len(total_clients):
+            all_previous_battery_levels = list(self.all_previous_battery_levels.values())
+
+        battery_min = min(all_previous_battery_levels) if all_previous_battery_levels else 0.0
+        battery_max = max(all_previous_battery_levels) if all_previous_battery_levels else 0.0
+        battery_avg = sum(all_previous_battery_levels) / len(all_previous_battery_levels) if all_previous_battery_levels else 0.0
 
         # Fairness index (Jain's fairness)
-        # Calcola su TUTTI i client (total_clients), inclusi quelli che non hanno mai risposto (count=0)
+        # Calculate over ALL clients (total_clients), including those that never responded (count=0)
         counts = []
         for client in total_clients:
-            if client in self.client_participation_count:
-                counts.append(self.client_participation_count[client])
+            if client in self.all_client_participation_count:
+                counts.append(self.all_client_participation_count[client])
             else:
                 counts.append(0)
 
@@ -234,9 +221,9 @@ class FleetManager:
             "selected_clients": float(len(selected_clients)),
             "dead_clients": float(len(selected_clients) - len(responded_clients)),
             "total_consumption": self.total_consumption_cumulative,
-            "responded_battery_min": responded_battery_min,
-            "responded_battery_max": responded_battery_max,
-            "responded_battery_avg": responded_battery_avg,
+            "battery_min": battery_min,
+            "battery_max": battery_max,
+            "battery_avg": battery_avg,
             "fairness_index_jain": fairness_jain,
         }
 
@@ -265,15 +252,15 @@ class FleetManager:
         # Process ALL clients (not just selected ones)
         for client_id in all_clients:
             # Get battery status
-            current_battery = self.client_battery_levels.get(client_id, 0.0)
-            previous_battery = self.round_previous_levels.get(client_id, current_battery)
+            current_battery = self.all_client_battery_levels.get(client_id, 0.0)
+            previous_battery = self.all_previous_battery_levels.get(client_id, current_battery)
             consumed = self.round_consumed.get(client_id, 0.0)
             recharged = self.round_recharged.get(client_id, 0.0)
-            participation_count = self.client_participation_count.get(client_id, 0)
+            participation_count = self.all_client_participation_count.get(client_id, 0)
 
             # Get device class name
             device_class_name = "unknown"
-            device_class_code = self.client_device_classes.get(client_id, -1)
+            device_class_code = self.all_client_device_classes.get(client_id, -1)
             if device_class_code == 0:
                 device_class_name = "low_power_device"
             elif device_class_code == 1:
@@ -296,10 +283,10 @@ class FleetManager:
             client_details.append({
                 "client_id": client_id,
                 "device_class": device_class_name,
-                "current_battery_level": current_battery,
+                "battery_level": current_battery,
                 "previous_battery_level": previous_battery,
-                "consumed_battery": consumed,  # Only selected clients consume
-                "recharged_battery": recharged,  # ALL clients recharge during query
+                "consumed": consumed,  # Only selected clients consume
+                "recharged": recharged,  # ALL clients recharge during query
                 "prob_selection": prob_map.get(client_id, 0.0),
                 "was_selected": was_selected,
                 "completion_status": completion_status,
@@ -313,7 +300,7 @@ class FleetManager:
         """Calculate selection weights (battery^alpha) based on reported levels."""
         weights = {}
         for client_id in client_ids:
-            battery_level = self.client_battery_levels.get(client_id, 0.0)
+            battery_level = self.all_client_battery_levels.get(client_id, 0.0)
             weights[client_id] = battery_level ** alpha
         return weights
 
@@ -321,7 +308,7 @@ class FleetManager:
         """Filter clients by battery threshold based on reported levels."""
         eligible = [
             cid for cid in client_ids
-            if self.client_battery_levels.get(cid, 0.0) >= min_threshold
+            if self.all_client_battery_levels.get(cid, 0.0) >= min_threshold
         ]
         return eligible
 
