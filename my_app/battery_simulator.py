@@ -16,15 +16,15 @@ class BatterySimulator:
     DEVICE_CLASSES = {
         0: { # low_power_device
             "consumption_range": (0.015, 0.025),
-            "harvesting_range": (0.0, 0.010),
+            "harvesting_range": (0.0, 0.015),
         },
         1: { # mid_power_device
-            "consumption_range": (0.030, 0.040),
+            "consumption_range": (0.025, 0.035),
             "harvesting_range": (0.0, 0.025),
         },
         2: { # high_power_device
-            "consumption_range": (0.050, 0.070),
-            "harvesting_range": (0.0, 0.045),
+            "consumption_range": (0.035, 0.045),
+            "harvesting_range": (0.0, 0.035),
         },
     }
 

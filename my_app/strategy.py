@@ -11,7 +11,7 @@ from flwr.server import Grid
 from flwr.serverapp.strategy import FedAvg, Result
 
 from my_app.selection_strategies import get_selection_strategy
-from my_app.wandb_utils import wandb_init, log_metrics, log_client_details_table
+from my_app.wandb_utils import wandb_init, log_metrics, log_client_details_table, close_csv_files
 
 
 class CustomFedAvg(FedAvg):
@@ -360,6 +360,9 @@ class CustomFedAvg(FedAvg):
         log(INFO, "")
         log(INFO, "Strategy execution finished in %.2fs", time.time() - t_start)
         log(INFO, "")
+
+        # Close CSV files
+        close_csv_files()
 
         return result
     

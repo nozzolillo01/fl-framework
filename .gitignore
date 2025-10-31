@@ -1,5 +1,7 @@
 # Wandb logs
 wandb/
+csv_logs/
+experiment_results_quick/
 
 
 

@@ -3,6 +3,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import warnings
+warnings.filterwarnings("ignore", message="The currently tested dataset")
 from flwr_datasets import FederatedDataset
 from flwr_datasets.partitioner import IidPartitioner, DirichletPartitioner
 from torch.utils.data import DataLoader
@@ -44,7 +46,7 @@ def load_data(partition_id: int, num_partitions: int):
     global fds
     if fds is None:
         #partitioner = IidPartitioner(num_partitions=num_partitions)
-        partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.1)
+        partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5)
         fds = FederatedDataset(
             dataset="nozzolillo01/PlantVillage10",
             partitioners={"train": partitioner},
