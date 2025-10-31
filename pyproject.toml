@@ -39,7 +39,7 @@ num-server-rounds = 5
 local-epochs = 5
 lr = 0.01
 selection-fraction = 0.5  # Fraction of clients to select each round
-selection-strategy = "battery_aware"  # Options: "random", "battery_aware", "all_available"
+selection-strategy = "random"  # Options: "random", "battery_aware", "all_available"
 
 alpha = 2.0  # Battery weight exponent (for battery_aware strategy)
 min-battery-threshold = 0.2  # Minimum battery level (for battery_aware strategy)
