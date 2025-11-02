@@ -2,6 +2,10 @@
 wandb/
 csv_logs/
 experiment_results_quick/
+experiment_results/
+
+# DOE output
+*.csv
 
 
 
