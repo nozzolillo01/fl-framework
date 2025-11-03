@@ -9,7 +9,7 @@ import wandb
 PROJECT_NAME = "exp_2"
 
 # Global variables for DOE output CSV
-_output_csv_path = "output2.csv"
+_output_csv_path = "provalocalepochs5.csv"
 _output_csv_file = None
 _output_csv_writer = None
 _current_experiment_config = {}

@@ -56,9 +56,6 @@ class BatterySimulator:
         
         self.total_consumption = 0.0
 
-        cmin, cmax = self.DEVICE_CLASSES[self.device_class]["consumption_range"]
-        hmin, hmax = self.DEVICE_CLASSES[self.device_class]["harvesting_range"]
-
 
     def consume(self, local_epochs: int) -> dict:
         """Simulate training: consume battery, then recharge via energy harvesting.
@@ -302,6 +299,23 @@ class FleetManager:
         for client_id in client_ids:
             battery_level = self.all_client_battery_levels.get(client_id, 0.0)
             weights[client_id] = battery_level ** alpha
+        return weights
+
+    def calculate_efficiency_weights(self, client_ids: list[int]) -> dict[int, float]:
+        """Calculate efficiency-based selection weights (battery / average consumption)."""
+        weights = {}
+
+        for client_id in client_ids:
+            #avg cons is the mean of cmin and cmax for the device class
+            device_class = self.all_client_device_classes.get(client_id, 0)
+            device_info = BatterySimulator.DEVICE_CLASSES.get(device_class, None)
+            cmin, cmax = device_info["consumption_range"]
+            average_consumption = (cmin + cmax) / 2
+            battery_level = self.all_client_battery_levels.get(client_id, 0.0)
+            if average_consumption > 0:
+                weights[client_id] = battery_level / average_consumption
+            else:
+                weights[client_id] = 0  # Fallback if no consumption recorded
         return weights
 
     def get_clients_above_threshold(self, client_ids: list[int], min_threshold: float = 0.0) -> list[int]:

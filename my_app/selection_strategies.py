@@ -103,11 +103,68 @@ def select_all_available(available_nodes: list[int], fleet_manager: FleetManager
     prob_map = {node_id: 1.0 for node_id in available_nodes}
     return available_nodes, prob_map
 
+def select_efficeny_aware(available_nodes: list[int], fleet_manager: FleetManager, params: dict) -> tuple[list[int], dict[int, float]]:
+    """
+    Efficiency-aware client selection.
+
+    Select clients based on a balance of battery level/cost in terms of average consume.
+    """
+
+    if not available_nodes:
+        return [], {}
+
+    sample_fraction = params.get("selection-fraction")
+    min_battery_threshold = params.get("min-battery-threshold")
+
+    # Filter clients below battery threshold
+    eligible_node_ids = fleet_manager.get_clients_above_threshold(available_nodes, min_battery_threshold)
+
+    # Fallback: if no eligible clients, select randomly
+    if not eligible_node_ids:
+        selected = random.sample(available_nodes, max(1, int(len(available_nodes) * sample_fraction)))
+        prob_map = {node_id: 1.0 / len(available_nodes) for node_id in available_nodes}
+        return selected, prob_map
+
+    # Calculate efficiency-based weights
+    weights_map = fleet_manager.calculate_efficiency_weights(eligible_node_ids)
+    weights = np.array(
+        [weights_map.get(node_id, 0.0) for node_id in eligible_node_ids], 
+        dtype=float
+    )
+
+    # Ensure valid weights
+    if weights.sum() <= 0:
+        weights = np.ones(len(eligible_node_ids), dtype=float)
+
+    # Normalize to probabilities
+    probabilities = weights / weights.sum()
+
+    # Determine number of clients to select
+    num_to_select = max(1, int(len(available_nodes) * sample_fraction))
+    num_to_select = min(num_to_select, len(eligible_node_ids))
+
+    # Weighted random sampling without replacement
+    indices = np.random.choice(
+        len(eligible_node_ids), 
+        size=num_to_select, 
+        replace=False, 
+        p=probabilities
+    )
+    selected = [eligible_node_ids[i] for i in indices]
+
+    # Build probability map for all available clients
+    prob_map = {node_id: 0.0 for node_id in available_nodes}
+    for node_id, prob in zip(eligible_node_ids, probabilities):
+        prob_map[node_id] = float(prob)
+
+    return selected, prob_map
+
 # Dictionary of available strategies
 STRATEGIES = {
     "random": select_random,
     "battery_aware": select_battery_aware,
     "all_available": select_all_available,
+    "efficiecy_aware": select_efficeny_aware, 
 }
 
 def get_selection_strategy(name: str) -> Optional[Callable[[list[int], FleetManager, dict], tuple[list[int], dict[int, float]]]]:
