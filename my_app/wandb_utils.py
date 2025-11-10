@@ -6,10 +6,10 @@ import time
 from pathlib import Path
 import wandb
 
-PROJECT_NAME = "exp_2"
+PROJECT_NAME = "exp_3"
 
 # Global variables for DOE output CSV
-_output_csv_path = "provalocalepochs5.csv"
+_output_csv_path = "exp3.csv"
 _output_csv_file = None
 _output_csv_writer = None
 _current_experiment_config = {}
@@ -188,7 +188,7 @@ def log_client_details_table(server_round: int, client_details: list) -> None:
 
 
 def close_csv_files() -> None:
-    """Close output.csv file. Call this at the end of training."""
+    """Close output.csv file and finish wandb. Call this at the end of training."""
     global _output_csv_file
     
     if _output_csv_file is not None:
@@ -197,3 +197,10 @@ def close_csv_files() -> None:
             print(f"✅ DOE output CSV file closed successfully: {_output_csv_path}")
         except Exception as e:
             print(f"Warning: Failed to close output CSV file: {e}")
+    
+    # Finish wandb run to properly sync and terminate
+    try:
+        wandb.finish()
+        print("✅ Wandb run finished successfully")
+    except Exception as e:
+        print(f"Warning: Failed to finish wandb run: {e}")

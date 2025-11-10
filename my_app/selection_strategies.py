@@ -103,7 +103,7 @@ def select_all_available(available_nodes: list[int], fleet_manager: FleetManager
     prob_map = {node_id: 1.0 for node_id in available_nodes}
     return available_nodes, prob_map
 
-def select_efficeny_aware(available_nodes: list[int], fleet_manager: FleetManager, params: dict) -> tuple[list[int], dict[int, float]]:
+def select_efficiency_aware(available_nodes: list[int], fleet_manager: FleetManager, params: dict) -> tuple[list[int], dict[int, float]]:
     """
     Efficiency-aware client selection.
 
@@ -164,7 +164,7 @@ STRATEGIES = {
     "random": select_random,
     "battery_aware": select_battery_aware,
     "all_available": select_all_available,
-    "efficiecy_aware": select_efficeny_aware, 
+    "efficiency_aware": select_efficiency_aware, 
 }
 
 def get_selection_strategy(name: str) -> Optional[Callable[[list[int], FleetManager, dict], tuple[list[int], dict[int, float]]]]:
