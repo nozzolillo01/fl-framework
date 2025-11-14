@@ -46,7 +46,13 @@ def load_data(partition_id: int, num_partitions: int):
     global fds
     if fds is None:
         #partitioner = IidPartitioner(num_partitions=num_partitions)
-        partitioner = DirichletPartitioner(num_partitions=num_partitions, partition_by="label", alpha=0.5)
+        partitioner = DirichletPartitioner(
+            num_partitions=num_partitions, 
+            partition_by="label", 
+            alpha=0.5,
+            min_partition_size=1,  # Permetti partizioni anche con 1 solo sample
+            self_balancing=True     # Bilancia automaticamente le partizioni
+        )
         fds = FederatedDataset(
             dataset="nozzolillo01/PlantVillage10",
             partitioners={"train": partitioner},

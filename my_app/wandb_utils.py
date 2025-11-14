@@ -6,10 +6,10 @@ import time
 from pathlib import Path
 import wandb
 
-PROJECT_NAME = "exp_3"
+PROJECT_NAME = "exp_4"
 
 # Global variables for DOE output CSV
-_output_csv_path = "exp3.csv"
+_output_csv_path = "exp4.csv"
 _output_csv_file = None
 _output_csv_writer = None
 _current_experiment_config = {}
