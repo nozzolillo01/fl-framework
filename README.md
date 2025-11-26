@@ -10,7 +10,7 @@
 
 ## 📋 Overview
 
-This project extends the [Flower](https://flower.ai/) Federated Learning framework to enable **energy-aware client selection** strategies. It provides a modular architecture for simulating battery behavior in edge devices and comparing different client selection policies based on energy consumption, fairness, and model accuracy.
+This project extends the [Flower](https://flower.ai/) Federated Learning framework to enable **energy-aware client selection** strategies for Smart Agriculture applications. It provides a modular architecture for simulating battery behavior in edge devices and comparing different client selection policies based on energy consumption, fairness, and model accuracy.
 
 ### 🎯 Key Features
 
@@ -18,6 +18,7 @@ This project extends the [Flower](https://flower.ai/) Federated Learning framewo
 - **📊 Multiple Selection Strategies**: 
   - `random`: Uniform random selection
   - `battery_aware`: Weighted selection based on battery levels
+  - `efficiency_aware`: Selection based on battery level/consumption ratio
   - `all_available`: Full participation
 - **📈 Comprehensive Metrics Tracking**: 
   - Training accuracy, loss, and convergence
@@ -25,6 +26,7 @@ This project extends the [Flower](https://flower.ai/) Federated Learning framewo
   - Client participation patterns
   - Energy efficiency metrics
 - **🔗 Weights & Biases Integration**: Automatic logging and visualization of all metrics
+- **📊 Design of Experiments (DOE) Support**: Automated CSV export of experimental results for statistical analysis
 - **⚙️ Highly Configurable**: All parameters accessible via `pyproject.toml`
 
 ---
@@ -59,17 +61,18 @@ This project extends the [Flower](https://flower.ai/) Federated Learning framewo
 
 ### Run a Simulation
 
-Execute a local simulation with 10 virtual clients:
+Execute a local simulation with 20 virtual clients:
 
 ```bash
 flwr run .
 ```
 
 The simulation will:
-- Train a CNN on CIFAR-10 dataset (Dirichlet partitioning, α=0.5)
-- Run 3 federated rounds by default
+- Train a CNN on PlantVillage10 dataset (Dirichlet partitioning, α=0.5)
+- Run 5 federated rounds by default
 - Log metrics to Weights & Biases
 - Save the final model as `final_model.pt`
+- Export DOE results to `exp4.csv` (snapshots every 10 rounds + final round)
 
 ---
 
@@ -80,20 +83,20 @@ All hyperparameters are configured in `pyproject.toml`:
 ```toml
 [tool.flwr.app.config]
 # Federated Learning settings
-num-server-rounds = 3           # Number of FL rounds
+num-server-rounds = 5           # Number of FL rounds
 selection-fraction = 0.5        # Fraction of clients selected per round
 local-epochs = 5                # Local training epochs per client
 lr = 0.01                       # Learning rate
 
 # Client selection strategy
-selection-strategy = "battery_aware"  # Options: "random", "battery_aware", "all_available"
+selection-strategy = "random"  # Options: "random", "battery_aware", "efficiency_aware", "all_available"
 
-# Battery-aware strategy parameters
-alpha = 2.0                     # Battery weight exponent (higher = more preference for high battery)
+# Battery-aware and efficiency-aware strategy parameters
+alpha = 2.0                     # Battery weight exponent (for battery_aware strategy)
 min-battery-threshold = 0.2     # Minimum battery level to be eligible (0.0-1.0)
 
 [tool.flwr.federations.local-simulation]
-options.num-supernodes = 10     # Number of virtual clients
+options.num-supernodes = 20     # Number of virtual clients
 ```
 
 ### Example Configurations
@@ -104,6 +107,13 @@ selection-strategy = "battery_aware"
 alpha = 3.0
 min-battery-threshold = 0.3
 selection-fraction = 0.3
+```
+
+**Efficiency-Based Selection:**
+```toml
+selection-strategy = "efficiency_aware"
+min-battery-threshold = 0.2
+selection-fraction = 0.5
 ```
 
 **Baseline Random Selection:**
@@ -128,7 +138,7 @@ You can override the parameters defined in `pyproject.toml` directly from the co
 Use the `--run-config` flag to specify the parameters to override:
 
 ```bash
-flwr run . --run-config 'num-server-rounds=5 selection-fraction=0.7'
+flwr run . --run-config '"num-server-rounds=5" "selection-fraction=0.7"'
 ```
 
 This command will execute a simulation with:
@@ -141,7 +151,7 @@ This command will execute a simulation with:
 Use the `--federation-config` flag to override federation-related parameters:
 
 ```bash
-flwr run . --federation-config 'options.num-supernodes=20'
+flwr run . --federation-config '"options.num-supernodes=20"'
 ```
 
 This command will execute a simulation with **20 virtual clients**.
@@ -164,8 +174,11 @@ my_app/
 ### Key Components
 
 - **`CustomFedAvg`**: Extends Flower's `FedAvg` strategy with custom client selection
-- **`FleetManager`**: Tracks battery levels, consumption, and participation for all clients
-- **`BatterySimulator`**: Simulates energy consumption and harvesting per device class
+- **`FleetManager`**: Tracks battery levels, consumption, and participation for all clients (server-side)
+- **`BatterySimulator`**: Simulates energy consumption and harvesting per device class (client-side)
+  - **Device Class 0 (low_power)**: Consumption 1.5-2.5%, Harvesting 0-1.5%
+  - **Device Class 1 (mid_power)**: Consumption 2.5-3.5%, Harvesting 0-2.5%
+  - **Device Class 2 (high_power)**: Consumption 3.5-4.5%, Harvesting 0-3.5%
 - **`Selection Strategies`**: Modular functions implementing different selection policies
 
 ---
@@ -175,26 +188,40 @@ my_app/
 ### Tracked Metrics
 
 **Model Performance:**
-- Train loss and accuracy  (federated training, aggregation of training metrics in each client)
-- Eval  loss and accuracy  (federated evaluation, aggregation of test metrics in each client)
-- Test  loss and accuracy  (centralized evaluation, Server-side test on a fresh dataset)
+- Train loss and accuracy (federated training, aggregation of training metrics in each client)
+- Eval loss and accuracy (federated evaluation, aggregation of test metrics in each client)
+- Centralized loss and accuracy (server-side evaluation on full test dataset)
 
 **Energy & Fairness:**
-- Total energy consumption
-- Battery level distribution (min, max, avg)
-- Number of dead clients per round
-- Jain's fairness index
+- Total cumulative energy consumption
+- Battery level distribution (min, max, avg) before each round
+- Number of dead clients per round (selected but failed due to battery exhaustion)
+- Jain's fairness index (participation equity across all clients)
 
 **Client Participation:**
-- Selected vs. active clients
-- Client-level details (battery, selection probability, device class)
+- Selected vs. responded clients
+- Client-level details for all clients:
+  - Battery level (current and previous)
+  - Energy consumed and recharged
+  - Selection probability
+  - Device class
+  - Participation count
+  - Completion status (not_selected, completed, failed)
 
 ### Viewing Results
 
-Results are automatically logged to Weights & Biases. Access your dashboard at:
+**Weights & Biases Dashboard:**
+Results are automatically logged to Weights & Biases project `exp_4`. Access your dashboard at:
 ```
-https://wandb.ai/<your-username>/fl-client-selection-framework
+https://wandb.ai/<your-username>/exp_4
 ```
+
+**Design of Experiments (DOE) Export:**
+Experimental results are automatically exported to `exp4.csv` with:
+- Snapshots saved every 10 rounds
+- Final round always saved
+- Includes all configuration factors and response variables
+- Ready for statistical analysis (ANOVA, regression, etc.)
 
 ---
 
@@ -237,6 +264,8 @@ flwr run .
    STRATEGIES = {
        "random": select_random,
        "battery_aware": select_battery_aware,
+       "efficiency_aware": select_efficiency_aware,
+       "all_available": select_all_available,
        "my_strategy": select_my_strategy,  # Add here
    }
    ```
@@ -252,11 +281,18 @@ Modify `BatterySimulator.DEVICE_CLASSES` in `battery_simulator.py`:
 
 ```python
 DEVICE_CLASSES = {
-    "ultra_low_power": {
-        "consumption_range": (0.005, 0.010), # Change the values
-        "harvesting_range": (0.0, 0.020),
+    0: {  # low_power_device
+        "consumption_range": (0.015, 0.025),  # Consumption per epoch
+        "harvesting_range": (0.0, 0.015),     # Harvesting per round
     },
-    # Add more classes...
+    1: {  # mid_power_device
+        "consumption_range": (0.025, 0.035),
+        "harvesting_range": (0.0, 0.025),
+    },
+    2: {  # high_power_device
+        "consumption_range": (0.035, 0.045),
+        "harvesting_range": (0.0, 0.035),
+    },
 }
 ```
 
@@ -265,12 +301,13 @@ DEVICE_CLASSES = {
 
 ## 📖 Research Context
 
-This framework is designed for research on **energy-efficient Federated Learning** in resource-constrained environments (IoT, mobile devices, edge computing). It enables investigation of:
+This framework is designed for research on **energy-efficient Federated Learning** in resource-constrained environments, with a focus on **Smart Agriculture** applications (IoT sensors, edge devices, agricultural monitoring systems). It enables investigation of:
 
 - Trade-offs between model accuracy and energy efficiency
 - Fairness in client participation under energy constraints
-- Impact of heterogeneous device capabilities
-- Energy harvesting strategies in FL
+- Impact of heterogeneous device capabilities on FL performance
+- Energy harvesting strategies in FL scenarios
+- Client selection policies for battery-powered agricultural sensors
 
 ---
 
@@ -282,7 +319,7 @@ This framework is designed for research on **energy-efficient Federated Learning
 - [Strategy Development](https://flower.ai/docs/framework/ref-api/flwr.server.strategy.html)
 
 ### Related Thesis
-- **Enery-Aware Federated Learing Frameworl**: Angelo Andrea Nozzolillo, "TITOLO TESI" (2025)
+- **FedLEAF: An Energy-Aware Federated Learning Framework for Client Selection in Smart Agriculture**: Angelo Andrea Nozzolillo (2025)
 
 
 ### Community
@@ -301,7 +338,7 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 ## 🙏 Acknowledgments
 
 - Built on [Flower](https://flower.ai/) framework
-- CIFAR-10 dataset via [Hugging Face Datasets](https://huggingface.co/datasets/uoft-cs/cifar10)
+- PlantVillage10 dataset via [Hugging Face Datasets](https://huggingface.co/datasets/nozzolillo01/PlantVillage10)
 - Experiment tracking with [Weights & Biases](https://wandb.ai/)
 
 ---
